@@ -26,8 +26,8 @@
         <div class="post-block category">
           <div class="row content-frame">
             <div class="sidebar">
-               <?php if ( is_active_sidebar( 'buzz-widgets-sidebar' ) ) {
-                    dynamic_sidebar( 'buzz-widgets-sidebar' );
+               <?php if ( is_active_sidebar( 'roboto-widgets-sidebar' ) ) {
+                    dynamic_sidebar( 'roboto-widgets-sidebar' );
                  } ?>
             </div>
             <div class="content-main">
@@ -36,7 +36,7 @@
 	              $category=get_queried_object(); $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	              $total_pages=$wp_query->max_num_pages;
               ?>
-                <h2><?php _e('Author: ','buzz'); the_author();?></h2>
+                <h2><?php _e('Author: ','roboto'); the_author();?></h2>
               </header>
               <div class="article-content same-height">
                 <div class="holder row">

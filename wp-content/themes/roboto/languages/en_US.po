@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: buzz 1.0\n"
+"Project-Id-Version: roboto 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-11 21:11+0545\n"
 "PO-Revision-Date: 2014-12-05 23:19+0545\n"
@@ -1176,7 +1176,7 @@ msgid "Widgets placed here will display in the third footer block"
 msgstr ""
 
 #: ../functions.php:100
-msgid "buzz Primary Menu"
+msgid "roboto Primary Menu"
 msgstr ""
 
 #: ../functions.php:125
@@ -1367,7 +1367,7 @@ msgid "A tab showing recent,popluar and random posts in sidebar."
 msgstr ""
 
 #: ../functions.php:1249
-msgid "Post Tabs (buzz)"
+msgid "Post Tabs (roboto)"
 msgstr ""
 
 #: ../functions.php:1280

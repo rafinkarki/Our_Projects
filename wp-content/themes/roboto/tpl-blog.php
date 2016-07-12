@@ -2,11 +2,11 @@
 /*
 * Template Name: Blog Post
 */
-if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); global $buzz_options; ?>
+if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); global $roboto_options; ?>
 <div class="top-banner">
         <div class="container-fluid">
         <div class="row">
-            <?php dynamic_sidebar('buzz-banner-sidebar');?>
+            <?php dynamic_sidebar('roboto-banner-sidebar');?>
         </div>
         <?php
             $trending_args=array('posts_per_page' => -1 ,'meta_key' => 'post_views_count','orderby' => 'meta_value_num'
@@ -36,7 +36,7 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); glob
           <div class="row">
             <div class="col-sm-5 col-md-6">
               <header class="heading">
-                <h2><?php _e('Latest Article','buzz');?></h2>
+                <h2><?php _e('Latest Article','roboto');?></h2>
               </header>
                 <?php $posts_per_page=10;
                 $latest_args = array( 'posts_per_page' => $posts_per_page, 'order'=> 'DESC', 'orderby' => 'date' );
@@ -96,11 +96,11 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); glob
             </div>
             <div class="col-sm-4">
               <header class="heading">
-                <h2><?php _e('Trending','buzz');?></h2>
+                <h2><?php _e('Trending','roboto');?></h2>
               </header>
 
                 <header class="heading">
-                <h2><?php _e('Trending','buzz');?></h2>
+                <h2><?php _e('Trending','roboto');?></h2>
               </header>
                <?php $posts_per_page_tranding2=3;
                 $tranding_args2 = array( 'posts_per_page' => $posts_per_page_tranding2 ,'meta_key' => 'post_views_count','orderby' => 'meta_value_num','order'=>ASC);
@@ -165,7 +165,7 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); glob
             if($video_query->have_posts()):?>
                 <div class="col-sm-3 col-md-2">
                   <header class="heading">
-                    <h2><?php _e('Top Video','buzz');?></h2>
+                    <h2><?php _e('Top Video','roboto');?></h2>
                   </header>
                   <ol class="video-frame">
                   <?php while($video_query->have_posts()):$video_query->the_post();?>

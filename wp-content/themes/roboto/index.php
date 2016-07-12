@@ -1,5 +1,5 @@
 <?php // Exit if accessed directly
-if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); global $buzz_options;?>
+if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); global $roboto_options;?>
  <section class="clearfix">
     <div class="container">
         <div id="blog-page" class="row clearfix">

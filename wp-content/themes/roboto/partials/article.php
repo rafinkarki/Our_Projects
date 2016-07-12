@@ -31,11 +31,11 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} global $blog_page;
     <span class="text"><?php the_excerpt();?></span>
     <div class="text-box">
         <div class="row">
-            <div class="left-block col-xs-6"><span class="avatars"><?php echo str_replace('avatar-54 photo', '', get_avatar(get_the_author_meta('email'),54 )); ?></span><p><?php _e('by ','buzz');?><b><?php the_author_posts_link(); ?></b> - <?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago'; ?></p></div>
+            <div class="left-block col-xs-6"><span class="avatars"><?php echo str_replace('avatar-54 photo', '', get_avatar(get_the_author_meta('email'),54 )); ?></span><p><?php _e('by ','roboto');?><b><?php the_author_posts_link(); ?></b> - <?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago'; ?></p></div>
             <div class="right-block col-xs-6 text-right">
                 <ul>
                     <li>
-                        <span class="view"><span class="icon-eye"></span><?php echo buzz_getPostViews(get_the_ID()); _e('Views','buzz');?></span>
+                        <span class="view"><span class="icon-eye"></span><?php echo roboto_getPostViews(get_the_ID()); _e('Views','roboto');?></span>
                     </li>
                     <li>
                         <span class="comments"><span class="icon-comment"></span><?php comments_number( '0', '1 Comment', '% Comments' ); ?></span>
@@ -45,26 +45,26 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} global $blog_page;
         </div>
     </div>
    <!--  <div class="btn-frame">
-        <a href="http://www.facebook.com/share.php?u=<?php get_the_permalink(); ?>&t=<?php the_title(); ?>" onclick="return fbs_click()" target="_blank" class="btn btn-facebook"><span class="icon-facebook"></span><?php _e('Facebook','buzz');?></a>
+        <a href="http://www.facebook.com/share.php?u=<?php get_the_permalink(); ?>&t=<?php the_title(); ?>" onclick="return fbs_click()" target="_blank" class="btn btn-facebook"><span class="icon-facebook"></span><?php _e('Facebook','roboto');?></a>
          <a href="http://twitter.com/share" class="btn btn-twitter" target="_blank"
           data-url="<?php the_permalink(); ?>"
-          data-via="BuzzLeak"
+          data-via="Roboto"
           data-text="<?php the_title(); ?>"
           data-related="Buzzleak:Wordpress Theme"
-          data-count="none"><span class="icon-twitter"></span><?php _e('Twitter','buzz');?></a>
+          data-count="none"><span class="icon-twitter"></span><?php _e('Twitter','roboto');?></a>
         <a href="#" class="btn btn-add">+</a>
     </div> -->
     <div class="article-content-box">
         <?php the_content();?>
     </div>
     <!-- <div class="btn-frame">
-        <a href="http://www.facebook.com/share.php?u=<?php get_the_permalink(); ?>&t=<?php the_title(); ?>" onclick="return fbs_click()" target="_blank" class="btn btn-facebook"><span class="icon-facebook"></span><?php _e('Facebook','buzz');?></a>
+        <a href="http://www.facebook.com/share.php?u=<?php get_the_permalink(); ?>&t=<?php the_title(); ?>" onclick="return fbs_click()" target="_blank" class="btn btn-facebook"><span class="icon-facebook"></span><?php _e('Facebook','roboto');?></a>
          <a href="http://twitter.com/share" class="btn btn-twitter" target="_blank"
           data-url="<?php the_permalink(); ?>"
-          data-via="BuzzLeak"
+          data-via="Roboto"
           data-text="<?php the_title(); ?>"
           data-related="Buzzleak:Wordpress Theme"
-          data-count="none"><span class="icon-twitter"></span><?php _e('Twitter','buzz');?></a>
+          data-count="none"><span class="icon-twitter"></span><?php _e('Twitter','roboto');?></a>
         <a href="#" class="btn btn-add">+</a>
     </div> -->
     <?php get_template_part('partials/article-related'); ?>

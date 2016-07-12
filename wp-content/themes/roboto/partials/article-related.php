@@ -6,24 +6,24 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} ?>
         <ul class="pager">
           <li class="previous">
           <?php
-          previous_posts_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous feature', 'buzz' ) . '</span> %title' ); ?>
+          previous_posts_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous feature', 'roboto' ) . '</span> %title' ); ?>
           </li>
           <li class="next">
           <?php
-          next_posts_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next feature', 'buzz' ) . '</span>' ); ?>
+          next_posts_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next feature', 'roboto' ) . '</span>' ); ?>
           </li>
         </ul>
       </div>
       <?php
   $defaults = array(
-    'before'           => '<p>' . __( 'Pages:','buzz' ),
+    'before'           => '<p>' . __( 'Pages:','roboto' ),
     'after'            => '</p>',
     'link_before'      => '',
     'link_after'       => '',
     'next_or_number'   => 'number',
     'separator'        => ' ',
-    'nextpagelink'     => __( 'Next page' ,'buzz'),
-    'previouspagelink' => __( 'Previous page','buzz' ),
+    'nextpagelink'     => __( 'Next page' ,'roboto'),
+    'previouspagelink' => __( 'Previous page','roboto' ),
     'pagelink'         => '%',
     'echo'             => 1
   );        wp_link_pages( $defaults );

@@ -1,10 +1,10 @@
 <?php
 /* Code for Popular Posts widget*/
 
-class WP_Widget_Popular_Post_buzz extends WP_Widget {
+class WP_Widget_Popular_Post_roboto extends WP_Widget {
     function __construct() {
-         $widget_ops = array('classname' => 'Popular Post', 'description' => __( "Gives list of popular posts.","buzz") );
-        parent::__construct('popular_post_widget', __('Popular Posts(buzz)','buzz'), $widget_ops);
+         $widget_ops = array('classname' => 'Popular Post', 'description' => __( "Gives list of popular posts.","roboto") );
+        parent::__construct('popular_post_widget', __('Popular Posts(roboto)','roboto'), $widget_ops);
         $this->alt_option_name = 'popular_post';
     }
     public function widget( $args, $instance ) {
@@ -69,9 +69,9 @@ class WP_Widget_Popular_Post_buzz extends WP_Widget {
         $number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 2;
 
 ?>
-        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','buzz'); ?></label>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','roboto'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
-        <p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of products to show:','buzz' ); ?></label>
+        <p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of products to show:','roboto' ); ?></label>
         <input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
 
 
@@ -93,4 +93,4 @@ class WP_Widget_Popular_Post_buzz extends WP_Widget {
     }
 
 }
-register_widget('WP_Widget_Popular_Post_buzz');
+register_widget('WP_Widget_Popular_Post_roboto');

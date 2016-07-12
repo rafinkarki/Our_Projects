@@ -28,7 +28,7 @@ if($_POST['action_type'] == 'loadmore' || $_POST['action_type'] == 'loadmore_tra
         $output = '';
         if ( ! empty( $categories ) ) {
             foreach( $categories as $category ) {
-                $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'buzz' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+                $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'roboto' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
             }
         }
         if($image){

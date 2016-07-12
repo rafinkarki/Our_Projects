@@ -26,13 +26,13 @@
         <div class="post-block search">
           <div class="row content-frame">
             <div class="sidebar">
-               <?php if ( is_active_sidebar( 'buzz-widgets-sidebar' ) ) {
-                    dynamic_sidebar( 'buzz-widgets-sidebar' );
+               <?php if ( is_active_sidebar( 'roboto-widgets-sidebar' ) ) {
+                    dynamic_sidebar( 'roboto-widgets-sidebar' );
                  } ?>
             </div>
             <div class="content-main">
               <header class="heading">
-                <h2><?php _e('Latest Article','buzz');?></h2>
+                <h2><?php _e('Latest Article','roboto');?></h2>
               </header>
               <div class="holder">
               <?php
@@ -71,7 +71,7 @@
                 <?php
                 endwhile;
                 else:
-                  echo __('No results found','buzz');
+                  echo __('No results found','roboto');
 
                 endif;
                 wp_reset_postdata();

@@ -1,54 +1,54 @@
-.buzzleak-page .navbar-default .navbar-nav > li > a:hover,
-.buzzleak-page .navbar-default .navbar-nav > li > a:focus,
-.buzzleak-page .navbar-default .navbar-nav > .open > a,
-.buzzleak-page .navbar-default .navbar-nav > .open > a:hover,
-.buzzleak-page .navbar-default .navbar-nav > .open > a:focus {
+.robotoleak-page .navbar-default .navbar-nav > li > a:hover,
+.robotoleak-page .navbar-default .navbar-nav > li > a:focus,
+.robotoleak-page .navbar-default .navbar-nav > .open > a,
+.robotoleak-page .navbar-default .navbar-nav > .open > a:hover,
+.robotoleak-page .navbar-default .navbar-nav > .open > a:focus {
 	color: #ed1c24;
 }
-.buzzleak-page .dropdown-menu > li > a:hover,
-.buzzleak-page .dropdown-menu > li > a:focus {
+.robotoleak-page .dropdown-menu > li > a:hover,
+.robotoleak-page .dropdown-menu > li > a:focus {
 
 	color: #ed1c24;
 }
-.buzzleak-page .top-banner .cap-btn {
+.robotoleak-page .top-banner .cap-btn {
 	background: #ed1c24;
 }
-.buzzleak-page .article-content .cap-btn {
+.robotoleak-page .article-content .cap-btn {
 	background: #ed1c24;
 }
 
-.buzzleak-page .article-content .cap-btn:hover {
+.robotoleak-page .article-content .cap-btn:hover {
 	background: #c61017;
 }
 
-.buzzleak-page .article-main .cap-btn {
+.robotoleak-page .article-main .cap-btn {
 	background: #ed1c24;
 }
 
-.buzzleak-page .article-main .cap-btn:hover {
+.robotoleak-page .article-main .cap-btn:hover {
 	background: #c61017;
 }
 
-.buzzleak-page .more-info-block .form-control.button {
+.robotoleak-page .more-info-block .form-control.button {
 	background: #ed1c24;
 }
-.buzzleak-page .post-block.category .video-box:before {
+.robotoleak-page .post-block.category .video-box:before {
 	background: #ed1c24;
 }
-.buzzleak-page .post-block.search .sub-list a {
+.robotoleak-page .post-block.search .sub-list a {
 	color: #ed1c24;
 }
-.buzzleak-page .post-block.search h2 a:hover,
-.buzzleak-page .post-block.search h3 a:hover,
-.buzzleak-page .post-block.search h4 a:hover {
+.robotoleak-page .post-block.search h2 a:hover,
+.robotoleak-page .post-block.search h3 a:hover,
+.robotoleak-page .post-block.search h4 a:hover {
 	color: #ed1c24;
 }
 
-.buzzleak-page .pagination li.active a {
+.robotoleak-page .pagination li.active a {
 	background: #ed1c24;
 }
 
-.buzzleak-page .pagination li a:hover {
+.robotoleak-page .pagination li a:hover {
 	background: #ed1c24;
 }
 .note-banner:after {
@@ -77,24 +77,24 @@
 .post-block .video-box:before {
 	background: #ed1c24;
 }
-.buzzleak-page .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-	.buzzleak-page .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+.robotoleak-page .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+	.robotoleak-page .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
 		color: #ed1c24;
 	}
 
 .post-block h3 a:hover {
 	color: #ed1c24;
 }
-.buzzleak-page .top-banner .cap-btn:hover {
+.robotoleak-page .top-banner .cap-btn:hover {
 	background: #c61017;
 }
-.buzzleak-page .article-content .cap-btn:hover {
+.robotoleak-page .article-content .cap-btn:hover {
 	background: #c61017;
 }
 
-.buzzleak-page .article-main .cap-btn:hover {
+.robotoleak-page .article-main .cap-btn:hover {
 	background: #c61017;
 }
-.buzzleak-page .more-info-block .form-control.button:hover {
+.robotoleak-page .more-info-block .form-control.button:hover {
 	background: #c61017;
 }

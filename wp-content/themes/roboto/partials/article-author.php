@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} ?>
 
 <header class="heading">
 
-    <h2><?php _e('About The Author','buzz');?></h2>
+    <h2><?php _e('About The Author','roboto');?></h2>
 
 </header>
 

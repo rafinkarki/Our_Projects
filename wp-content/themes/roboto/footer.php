@@ -1,12 +1,12 @@
 <?php // Exit if accessed directly
-if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} $pageid=get_the_ID();global $buzz_options;  ?>
+if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} $pageid=get_the_ID();global $roboto_options;  ?>
 </main>
 <footer id="footer">
   <div class="footer-block">
     <div class="container-fluid">
       <div class="row">
-        <?php if($buzz_options['footer_text']):?>
-            <div class="col-sm-6"><p><?php echo wp_kses_post($buzz_options['footer_text']);?></p></div>
+        <?php if($roboto_options['footer_text']):?>
+            <div class="col-sm-6"><p><?php echo wp_kses_post($roboto_options['footer_text']);?></p></div>
         <?php endif;?>
         <div class="col-sm-6 text-right">
             <?php
@@ -26,8 +26,8 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} $pageid=get_the_ID
   </div>
 </footer>
 </div>
-<?php if(isset($buzz_options['meta_javascript']) && $buzz_options['meta_javascript']!='')
-echo wp_kses_post($buzz_options['meta_javascript']); ?>
+<?php if(isset($roboto_options['meta_javascript']) && $roboto_options['meta_javascript']!='')
+echo wp_kses_post($roboto_options['meta_javascript']); ?>
 <?php wp_footer(); ?>
 <script type="text/javascript">
 jQuery('body').on('click','#loadmore a',function(){

@@ -1,12 +1,12 @@
 <?php
 /**
- * buzz functions file.
+ * roboto functions file.
  */
 
 // Exit if accessed directly
 if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();}
 
-global $buzz_options;
+global $roboto_options;
 
 if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/options-config.php' ) ) {
     require_once( dirname( __FILE__ ) . '/options-config.php' );
@@ -21,9 +21,9 @@ require( trailingslashit( get_template_directory() ) . 'inc/metabox.php' );
 * THEME SETUP
 */
 
-function buzz_setup() {
+function roboto_setup() {
 
-    global $buzz_options;
+    global $roboto_options;
     // Set content width
     global $content_width;
     if (!isset($content_width)) $content_width = 720;
@@ -36,9 +36,9 @@ function buzz_setup() {
 
      // Nav Menu (Custom menu support)
     if (function_exists('register_nav_menu')) :
-        global $buzz_options;
-        register_nav_menu('primary', __('Buzz Primary Menu', 'buzz'));
-        register_nav_menu('secondary', __('Buzz Footer Menu', 'buzz'));
+        global $roboto_options;
+        register_nav_menu('primary', __('Buzz Primary Menu', 'roboto'));
+        register_nav_menu('secondary', __('Buzz Footer Menu', 'roboto'));
     endif;
 
     // Theme Features: Automatic Feed Links
@@ -58,19 +58,19 @@ function buzz_setup() {
 
 
 }
-add_action('after_setup_theme', 'buzz_setup');
+add_action('after_setup_theme', 'roboto_setup');
 
 
-function buzz_widgets_setup() {
+function roboto_widgets_setup() {
 
-    global $buzz_options;
+    global $roboto_options;
     // Widget areas
     if (function_exists('register_sidebar')) :
         // Sidebar right
         register_sidebar(array(
-            'name' => __("Blog Sidebar", 'buzz'),
-            'id' => "buzz-widgets-sidebar",
-            'description' => __('Widgets placed here will display in the right sidebar', 'buzz'),
+            'name' => __("Blog Sidebar", 'roboto'),
+            'id' => "roboto-widgets-sidebar",
+            'description' => __('Widgets placed here will display in the right sidebar', 'roboto'),
             'before_widget' => '<div id="%1$s" class="widget %2$s featured-widget">',
             'after_widget'  => '</div>',
             'before_title'  => '<header class="heading"><h2>',
@@ -78,18 +78,18 @@ function buzz_widgets_setup() {
         ));
 
         register_sidebar(array(
-            'name' => __("Trending Sidebar", 'buzz'),
-            'id' => "buzz-trending-sidebar",
-            'description' => __('Sidebar for trending posts', 'buzz'),
+            'name' => __("Trending Sidebar", 'roboto'),
+            'id' => "roboto-trending-sidebar",
+            'description' => __('Sidebar for trending posts', 'roboto'),
             'before_widget' => '<div id="%1$s" class="widget %2$s featured-widget">',
             'after_widget'  => '</div>',
             'before_title'  => '<header class="heading"><h2>',
             'after_title'   => '</h2></header>'
         ));
          register_sidebar(array(
-            'name' => __("Banner", 'buzz'),
-            'id' => "buzz-banner-sidebar",
-            'description' => __('Sidebar for Banner posts', 'buzz'),
+            'name' => __("Banner", 'roboto'),
+            'id' => "roboto-banner-sidebar",
+            'description' => __('Sidebar for Banner posts', 'roboto'),
             'before_widget' => '<div id="%1$s" class="widget %2$s featured-widget">',
             'after_widget'  => '</div>',
             'before_title'  => '<header class="heading"><h2>',
@@ -99,17 +99,17 @@ function buzz_widgets_setup() {
     endif;
 
 }
-add_action('widgets_init', 'buzz_widgets_setup');
+add_action('widgets_init', 'roboto_widgets_setup');
 
 
 // The excerpt "more" button
-function buzz_excerpt($text) {
-    return str_replace('[&hellip;]', '[&hellip;]<a class="" title="'. sprintf (__('Read more on %s','buzz'), get_the_title()).'" href="'.get_permalink().'">' . __(' Read more','buzz') . '</a>', $text);
+function roboto_excerpt($text) {
+    return str_replace('[&hellip;]', '[&hellip;]<a class="" title="'. sprintf (__('Read more on %s','roboto'), get_the_title()).'" href="'.get_permalink().'">' . __(' Read more','roboto') . '</a>', $text);
 }
-add_filter('the_excerpt', 'buzz_excerpt');
+add_filter('the_excerpt', 'roboto_excerpt');
 
 // wp_title filter
-function buzz_title($output) {
+function roboto_title($output) {
     echo $output;
     // Add the blog name
     bloginfo('name');
@@ -117,22 +117,22 @@ function buzz_title($output) {
     $site_description = get_bloginfo('description', 'display');
     if ($site_description && (is_home() || is_front_page())) echo ' - '.$site_description;
     // Add a page number if necessary
-    if (!empty($paged) && ($paged >= 2 || $page >= 2)) echo ' - ' . sprintf(__('Page %s', 'buzz'), max($paged, $page));
+    if (!empty($paged) && ($paged >= 2 || $page >= 2)) echo ' - ' . sprintf(__('Page %s', 'roboto'), max($paged, $page));
 }
-add_filter('wp_title', 'buzz_title');
+add_filter('wp_title', 'roboto_title');
 add_image_size( 'tranding-size', 170, 300, true );
 add_image_size( 'related-posts-thumbnails', 390, 390, true );
 /*********************************************************************
  * Function to load all theme assets (scripts and styles) in header
  */
-function buzz_load_theme_assets() {
-    global $buzz_options;
-    wp_enqueue_style( 'buzz-buzzleak-font', 'https://fonts.googleapis.com/css?family=Montserrat%7cRaleway:300,400,500,700', '', '' );
+function roboto_load_theme_assets() {
+    global $roboto_options;
+    wp_enqueue_style( 'roboto-robotoleak-font', 'https://fonts.googleapis.com/css?family=Montserrat%7cRaleway:300,400,500,700', '', '' );
     // Enqueue all the theme CSS
-    wp_enqueue_style('buzz-bootstrap-css', get_template_directory_uri().'/assets/css/bootstrap.css');
-    wp_enqueue_style('buzz-main-css', get_template_directory_uri().'/assets/css/main.css');
-    wp_enqueue_style('buzz-color-style', get_template_directory_uri().'/assets/css/color.css');
-    wp_enqueue_style( 'buzz-style', get_stylesheet_uri() );
+    wp_enqueue_style('roboto-bootstrap-css', get_template_directory_uri().'/assets/css/bootstrap.css');
+    wp_enqueue_style('roboto-main-css', get_template_directory_uri().'/assets/css/main.css');
+    wp_enqueue_style('roboto-color-style', get_template_directory_uri().'/assets/css/color.css');
+    wp_enqueue_style( 'roboto-style', get_stylesheet_uri() );
     // Enqueue all the js files of theme
     //wp_enqueue_script('jquery');
     wp_enqueue_script('jquery-js', get_template_directory_uri().'/assets/js/jquery-1.11.2.min.js', array(), FALSE, TRUE);
@@ -141,110 +141,110 @@ function buzz_load_theme_assets() {
     // custom css append code here
 
     $inline_css='';
-    if(isset($buzz_options['extra-css'])){
-    $inline_css.=$buzz_options['extra-css'];
+    if(isset($roboto_options['extra-css'])){
+    $inline_css.=$roboto_options['extra-css'];
     }
-    wp_add_inline_style( 'buzz-style', $inline_css );
-    if(isset($buzz_options['typography-body']['font-family']) && $buzz_options['typography-body']['font-family']!=''&& $buzz_options['typography-body']['font-weight']!='') {
-    wp_enqueue_style('googlefont-custom', 'http://fonts.googleapis.com/css?family='.esc_attr($buzz_options['typography-body']['font-family']));
+    wp_add_inline_style( 'roboto-style', $inline_css );
+    if(isset($roboto_options['typography-body']['font-family']) && $roboto_options['typography-body']['font-family']!=''&& $roboto_options['typography-body']['font-weight']!='') {
+    wp_enqueue_style('googlefont-custom', 'http://fonts.googleapis.com/css?family='.esc_attr($roboto_options['typography-body']['font-family']));
     }
-    if(isset($buzz_options['typography-h1']['font-family']) && $buzz_options['typography-h1']['font-family']!=''&& $buzz_options['typography-h1']['font-weight']!='') {
-    wp_enqueue_style('googlefont-h1', 'http://fonts.googleapis.com/css?family='.esc_attr($buzz_options['typography-h1']['font-family']));
+    if(isset($roboto_options['typography-h1']['font-family']) && $roboto_options['typography-h1']['font-family']!=''&& $roboto_options['typography-h1']['font-weight']!='') {
+    wp_enqueue_style('googlefont-h1', 'http://fonts.googleapis.com/css?family='.esc_attr($roboto_options['typography-h1']['font-family']));
     }
-    if(isset($buzz_options['typography-h2']['font-family']) && $buzz_options['typography-h2']['font-family']!=''&& $buzz_options['typography-h2']['font-weight']!='') {
-    wp_enqueue_style('googlefont-h2', 'http://fonts.googleapis.com/css?family='.esc_attr($buzz_options['typography-h2']['font-family']));
+    if(isset($roboto_options['typography-h2']['font-family']) && $roboto_options['typography-h2']['font-family']!=''&& $roboto_options['typography-h2']['font-weight']!='') {
+    wp_enqueue_style('googlefont-h2', 'http://fonts.googleapis.com/css?family='.esc_attr($roboto_options['typography-h2']['font-family']));
     }
-    if(isset($buzz_options['typography-h3']['font-family']) && $buzz_options['typography-h3']['font-family']!=''&& $buzz_options['typography-h3']['font-weight']!='') {
-    wp_enqueue_style('googlefont-h3', 'http://fonts.googleapis.com/css?family='.esc_attr($buzz_options['typography-h3']['font-family']));
+    if(isset($roboto_options['typography-h3']['font-family']) && $roboto_options['typography-h3']['font-family']!=''&& $roboto_options['typography-h3']['font-weight']!='') {
+    wp_enqueue_style('googlefont-h3', 'http://fonts.googleapis.com/css?family='.esc_attr($roboto_options['typography-h3']['font-family']));
     }
-    if(isset($buzz_options['typography-h4']['font-family']) && $buzz_options['typography-h4']['font-family']!=''&& $buzz_options['typography-h4']['font-weight']!='') {
-    wp_enqueue_style('googlefont-h4', 'http://fonts.googleapis.com/css?family='.esc_attr($buzz_options['typography-h4']['font-family']));
+    if(isset($roboto_options['typography-h4']['font-family']) && $roboto_options['typography-h4']['font-family']!=''&& $roboto_options['typography-h4']['font-weight']!='') {
+    wp_enqueue_style('googlefont-h4', 'http://fonts.googleapis.com/css?family='.esc_attr($roboto_options['typography-h4']['font-family']));
     }
-    if(isset($buzz_options['typography-h5']['font-family']) && $buzz_options['typography-h5']['font-family']!=''&& $buzz_options['typography-h5']['font-weight']!='') {
-    wp_enqueue_style('googlefont-h5', 'http://fonts.googleapis.com/css?family='.$buzz_options['typography-h5']['font-family']);
+    if(isset($roboto_options['typography-h5']['font-family']) && $roboto_options['typography-h5']['font-family']!=''&& $roboto_options['typography-h5']['font-weight']!='') {
+    wp_enqueue_style('googlefont-h5', 'http://fonts.googleapis.com/css?family='.$roboto_options['typography-h5']['font-family']);
     }
-    if(isset($buzz_options['typography-h6']['font-family']) && $buzz_options['typography-h6']['font-family']!=''&& $buzz_options['typography-h6']['font-weight']!='') {
-    wp_enqueue_style('googlefont-h6', 'http://fonts.googleapis.com/css?family='.$buzz_options['typography-h6']['font-family']);
+    if(isset($roboto_options['typography-h6']['font-family']) && $roboto_options['typography-h6']['font-family']!=''&& $roboto_options['typography-h6']['font-weight']!='') {
+    wp_enqueue_style('googlefont-h6', 'http://fonts.googleapis.com/css?family='.$roboto_options['typography-h6']['font-family']);
     }
 
     // theme color variation code here
     $color_variation ='';
-    if(isset($buzz_options['custom_color_primary']) && $buzz_options['custom_color_primary']!=''){
-    $main_custom_color_primary= esc_attr($buzz_options['custom_color_primary']);
+    if(isset($roboto_options['custom_color_primary']) && $roboto_options['custom_color_primary']!=''){
+    $main_custom_color_primary= esc_attr($roboto_options['custom_color_primary']);
     } else {
     $main_custom_color_primary= "#ed1c24";
     }
-    if(isset($buzz_options['custom_color_hover']) && $buzz_options['custom_color_hover']!=''){
-    $main_custom_color_hover= esc_attr($buzz_options['custom_color_hover']);
+    if(isset($roboto_options['custom_color_hover']) && $roboto_options['custom_color_hover']!=''){
+    $main_custom_color_hover= esc_attr($roboto_options['custom_color_hover']);
     } else {
     $main_custom_color_hover= "#c61017";
     }
     $color_variation='
 
-        .buzzleak-page .top-banner .cap-btn:hover {
+        .robotoleak-page .top-banner .cap-btn:hover {
             background: '.$main_custom_color_hover.';
         }
-        .buzzleak-page .article-content .cap-btn:hover {
+        .robotoleak-page .article-content .cap-btn:hover {
             background: '.$main_custom_color_hover.';
         }
 
-        .buzzleak-page .article-main .cap-btn:hover {
+        .robotoleak-page .article-main .cap-btn:hover {
             background: '.$main_custom_color_hover.';
         }
-        .buzzleak-page .more-info-block .form-control.button:hover {
+        .robotoleak-page .more-info-block .form-control.button:hover {
             background: '.$main_custom_color_hover.';
         }
-        .buzzleak-page .navbar-default .navbar-nav > li > a:hover,
-        .buzzleak-page .navbar-default .navbar-nav > li > a:focus,
-        .buzzleak-page .navbar-default .navbar-nav > .open > a,
-        .buzzleak-page .navbar-default .navbar-nav > .open > a:hover,
-        .buzzleak-page .navbar-default .navbar-nav > .open > a:focus {
+        .robotoleak-page .navbar-default .navbar-nav > li > a:hover,
+        .robotoleak-page .navbar-default .navbar-nav > li > a:focus,
+        .robotoleak-page .navbar-default .navbar-nav > .open > a,
+        .robotoleak-page .navbar-default .navbar-nav > .open > a:hover,
+        .robotoleak-page .navbar-default .navbar-nav > .open > a:focus {
             color: '.$main_custom_color_primary.';
         }
-        .buzzleak-page .dropdown-menu > li > a:hover,
-        .buzzleak-page .dropdown-menu > li > a:focus {
+        .robotoleak-page .dropdown-menu > li > a:hover,
+        .robotoleak-page .dropdown-menu > li > a:focus {
 
             color: '.$main_custom_color_primary.';
         }
-        .buzzleak-page .top-banner .cap-btn {
+        .robotoleak-page .top-banner .cap-btn {
             background: '.$main_custom_color_primary.';
         }
-        .buzzleak-page .article-content .cap-btn {
+        .robotoleak-page .article-content .cap-btn {
             background: '.$main_custom_color_primary.';
         }
 
-        .buzzleak-page .article-content .cap-btn:hover {
+        .robotoleak-page .article-content .cap-btn:hover {
             background: #c61017;
         }
 
-        .buzzleak-page .article-main .cap-btn {
+        .robotoleak-page .article-main .cap-btn {
             background: '.$main_custom_color_primary.';
         }
 
-        .buzzleak-page .article-main .cap-btn:hover {
+        .robotoleak-page .article-main .cap-btn:hover {
             background: #c61017;
         }
 
-        .buzzleak-page .more-info-block .form-control.button {
+        .robotoleak-page .more-info-block .form-control.button {
             background: '.$main_custom_color_primary.';
         }
-        .buzzleak-page .post-block.category .video-box:before {
+        .robotoleak-page .post-block.category .video-box:before {
             background: '.$main_custom_color_primary.';
         }
-        .buzzleak-page .post-block.search .sub-list a {
+        .robotoleak-page .post-block.search .sub-list a {
             color: '.$main_custom_color_primary.';
         }
-        .buzzleak-page .post-block.search h2 a:hover,
-        .buzzleak-page .post-block.search h3 a:hover,
-        .buzzleak-page .post-block.search h4 a:hover {
+        .robotoleak-page .post-block.search h2 a:hover,
+        .robotoleak-page .post-block.search h3 a:hover,
+        .robotoleak-page .post-block.search h4 a:hover {
             color: '.$main_custom_color_primary.';
         }
 
-        .buzzleak-page .pagination li.active a {
+        .robotoleak-page .pagination li.active a {
             background: '.$main_custom_color_primary.';
         }
 
-        .buzzleak-page .pagination li a:hover {
+        .robotoleak-page .pagination li a:hover {
             background: '.$main_custom_color_primary.';
         }
         .note-banner:after {
@@ -273,40 +273,40 @@ function buzz_load_theme_assets() {
         .post-block .video-box:before {
             background:'.$main_custom_color_primary.';
         }
-        .buzzleak-page .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-            .buzzleak-page .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        .robotoleak-page .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+            .robotoleak-page .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
                 color: '.$main_custom_color_primary.';
             }
 
         .post-block h3 a:hover {
             color: '.$main_custom_color_primary.';
         ';
-    wp_add_inline_style( 'buzz-color-style', $color_variation );
+    wp_add_inline_style( 'roboto-color-style', $color_variation );
 
   }
-add_action('wp_enqueue_scripts', 'buzz_load_theme_assets');
+add_action('wp_enqueue_scripts', 'roboto_load_theme_assets');
 
 
 // Enqueue comment-reply script if comments_open and singular
-function buzz_enqueue_comment_reply() {
+function roboto_enqueue_comment_reply() {
         if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
                 wp_enqueue_script( 'comment-reply' );
         }
 }
-add_action( 'wp_enqueue_scripts', 'buzz_enqueue_comment_reply' );
+add_action( 'wp_enqueue_scripts', 'roboto_enqueue_comment_reply' );
 
-add_filter('nav_menu_css_class' , 'buzz_special_nav_class' , 10 , 2);
-function buzz_special_nav_class($classes, $item){
+add_filter('nav_menu_css_class' , 'roboto_special_nav_class' , 10 , 2);
+function roboto_special_nav_class($classes, $item){
      if( in_array('current-menu-item', $classes) ){
              $classes[] = 'active ';
      }
-     global $buzz_options;
+     global $roboto_options;
      return $classes;
 }
 
-add_action( 'tgmpa_register', 'buzz_register_required_plugins' );
+add_action( 'tgmpa_register', 'roboto_register_required_plugins' );
 
-function buzz_register_required_plugins() {
+function roboto_register_required_plugins() {
 
 
     $plugins = array(
@@ -343,23 +343,23 @@ function buzz_register_required_plugins() {
         'is_automatic' => false,                   // Automatically activate plugins after installation or not.
         'message'      => '',                      // Message to output right before the plugins table.
         'strings'      => array(
-            'page_title'                      => __( 'Install Required Plugins', 'buzz' ),
-            'menu_title'                      => __( 'Install Plugins', 'buzz' ),
-            'installing'                      => __( 'Installing Plugin: %s', 'buzz' ), // %s = plugin name.
-            'oops'                            => __( 'Something went wrong with the plugin API.', 'buzz' ),
-            'notice_can_install_required'     => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' , 'buzz'), // %1$s = plugin name(s).
-            'notice_can_install_recommended'  => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.', 'buzz' ), // %1$s = plugin name(s).
-            'notice_cannot_install'           => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.', 'buzz' ), // %1$s = plugin name(s).
-            'notice_can_activate_required'    => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.', 'buzz' ), // %1$s = plugin name(s).
-            'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.', 'buzz' ), // %1$s = plugin name(s).
-            'notice_cannot_activate'          => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.', 'buzz' ), // %1$s = plugin name(s).
-            'notice_ask_to_update'            => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.', 'buzz' ), // %1$s = plugin name(s).
-            'notice_cannot_update'            => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' , 'buzz'), // %1$s = plugin name(s).
-            'install_link'                    => _n_noop( 'Begin installing plugin', 'Begin installing plugins', 'buzz' ),
-            'activate_link'                   => _n_noop( 'Begin activating plugin', 'Begin activating plugins', 'buzz' ),
-            'return'                          => __( 'Return to Required Plugins Installer', 'buzz' ),
-            'plugin_activated'                => __( 'Plugin activated successfully.', 'buzz' ),
-            'complete'                        => __( 'All plugins installed and activated successfully. %s', 'buzz' ), // %s = dashboard link.
+            'page_title'                      => __( 'Install Required Plugins', 'roboto' ),
+            'menu_title'                      => __( 'Install Plugins', 'roboto' ),
+            'installing'                      => __( 'Installing Plugin: %s', 'roboto' ), // %s = plugin name.
+            'oops'                            => __( 'Something went wrong with the plugin API.', 'roboto' ),
+            'notice_can_install_required'     => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' , 'roboto'), // %1$s = plugin name(s).
+            'notice_can_install_recommended'  => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.', 'roboto' ), // %1$s = plugin name(s).
+            'notice_cannot_install'           => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.', 'roboto' ), // %1$s = plugin name(s).
+            'notice_can_activate_required'    => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.', 'roboto' ), // %1$s = plugin name(s).
+            'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.', 'roboto' ), // %1$s = plugin name(s).
+            'notice_cannot_activate'          => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.', 'roboto' ), // %1$s = plugin name(s).
+            'notice_ask_to_update'            => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.', 'roboto' ), // %1$s = plugin name(s).
+            'notice_cannot_update'            => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' , 'roboto'), // %1$s = plugin name(s).
+            'install_link'                    => _n_noop( 'Begin installing plugin', 'Begin installing plugins', 'roboto' ),
+            'activate_link'                   => _n_noop( 'Begin activating plugin', 'Begin activating plugins', 'roboto' ),
+            'return'                          => __( 'Return to Required Plugins Installer', 'roboto' ),
+            'plugin_activated'                => __( 'Plugin activated successfully.', 'roboto' ),
+            'complete'                        => __( 'All plugins installed and activated successfully. %s', 'roboto' ), // %s = dashboard link.
             'nag_type'                        => 'updated' // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
         )
     );
@@ -369,7 +369,7 @@ function buzz_register_required_plugins() {
 }
 
 
-function buzz_comment($comment, $args, $depth) {
+function roboto_comment($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
     extract($args, EXTR_SKIP);
 
@@ -384,7 +384,7 @@ function buzz_comment($comment, $args, $depth) {
             <h3><?php echo get_comment_author_link(); ?>
                 <span>- <?php
                             /* translators: 1: date, 2: time */
-                            printf( __('%1$s at %2$s','buzz'), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)','buzz' ), '  ', '' );
+                            printf( __('%1$s at %2$s','roboto'), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)','roboto' ), '  ', '' );
                         ?>
                 </span>
             </h3>
@@ -392,7 +392,7 @@ function buzz_comment($comment, $args, $depth) {
             <div class="reply-box"><span class="reply"><?php comment_reply_link(array_merge( $args, array('reply_text' => 'Reply','depth' => $depth, 'max_depth' => $args['max_depth']))) ?></span></div>
             <div class="comment-block">
             <?php if ( $comment->comment_approved == '0' ) : ?>
-                <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.','buzz' ); ?></em>
+                <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.','roboto' ); ?></em>
                 <br />
             <?php endif; ?>
 
@@ -417,7 +417,7 @@ function buzz_comment($comment, $args, $depth) {
     POPULAR POSTS
 \*====================================*/
 
-function buzz_getPostViews($postID){
+function roboto_getPostViews($postID){
     $count_key = 'post_views_count';
     $count = get_post_meta($postID, $count_key, true);
     if ($count == ''){
@@ -428,7 +428,7 @@ function buzz_getPostViews($postID){
     return $count;
 }
 
-function buzz_setPostViews($postID) {
+function roboto_setPostViews($postID) {
     $count_key = 'post_views_count';
     $count = get_post_meta($postID, $count_key, true);
     if ($count == ''){
@@ -441,36 +441,36 @@ function buzz_setPostViews($postID) {
     }
 }
 //For excerpt
-function buzz_excerpt_more( $more ) {
+function roboto_excerpt_more( $more ) {
     return '...';
 }
-add_filter('excerpt_more', 'buzz_excerpt_more');
+add_filter('excerpt_more', 'roboto_excerpt_more');
 
-function buzz_excerpt_length( $length ) {
+function roboto_excerpt_length( $length ) {
     return 25;
 }
-add_filter( 'excerpt_length', 'buzz_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'roboto_excerpt_length', 999 );
 // cmb2
-function buzz_post_meta() {
+function roboto_post_meta() {
 
     $cmb = new_cmb2_box( array(
-        'id'           => 'buzz_post_meta',
+        'id'           => 'roboto_post_meta',
         'title'        => 'Post Information',
         'object_types' => array( 'post' ),
     ) );
 
     $cmb->add_field( array(
         'name' => 'Featured Post',
-        'id'   => '_buzz_featured',
+        'id'   => '_roboto_featured',
         'type' => 'checkbox',
         'desc' => 'Check if post is featured post.',
     ) );
 
 }
-add_action( 'cmb2_admin_init', 'buzz_post_meta' );
-// buzz leak comment arrange
-add_filter( 'comment_form_fields', 'buzz_move_comment_field' );
-function buzz_move_comment_field( $fields ) {
+add_action( 'cmb2_admin_init', 'roboto_post_meta' );
+// roboto leak comment arrange
+add_filter( 'comment_form_fields', 'roboto_move_comment_field' );
+function roboto_move_comment_field( $fields ) {
     $comment_field = $fields['comment'];
     unset( $fields['comment'] );
     $fields['comment'] = $comment_field;
@@ -478,14 +478,14 @@ function buzz_move_comment_field( $fields ) {
 }
 
 
-if ( ! function_exists( 'buzz_load_widgets' ) ) :
+if ( ! function_exists( 'roboto_load_widgets' ) ) :
 
     /**
      * Load widgets.
      *
      * @since 1.0.0
      */
-    function buzz_load_widgets() {
+    function roboto_load_widgets() {
 
         register_widget( 'Buzz_Trending_Posts_Widget' );
         // Advanced Recent Posts widget.
@@ -494,7 +494,7 @@ if ( ! function_exists( 'buzz_load_widgets' ) ) :
 
 endif;
 
-add_action( 'widgets_init', 'buzz_load_widgets' );
+add_action( 'widgets_init', 'roboto_load_widgets' );
 
 if ( ! class_exists( 'Buzz_Trending_Posts_Widget' ) ) :
 
@@ -512,10 +512,10 @@ if ( ! class_exists( 'Buzz_Trending_Posts_Widget' ) ) :
          */
         function __construct() {
             $opts = array(
-                'classname'   => 'buzz_trending_posts_widget',
-                'description' => esc_html__( 'Displays Trending Posts. Most suitable for home page.', 'buzz' ),
+                'classname'   => 'roboto_trending_posts_widget',
+                'description' => esc_html__( 'Displays Trending Posts. Most suitable for home page.', 'roboto' ),
             );
-            parent::__construct( 'buzz-trending', esc_html__( 'Buzz: Trending Posts Widget', 'buzz' ), $opts );
+            parent::__construct( 'roboto-trending', esc_html__( 'Buzz: Trending Posts Widget', 'roboto' ), $opts );
         }
 
         /**
@@ -634,11 +634,11 @@ if ( ! class_exists( 'Buzz_Trending_Posts_Widget' ) ) :
             ?>
 
             <p>
-                <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'buzz' ); ?></label>
+                <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'roboto' ); ?></label>
                 <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo $title ; ?>" />
             </p>
             <p>
-                <label for="<?php echo esc_attr( $this->get_field_id( 'posts_number' ) ); ?>"><?php esc_html_e( 'Number of Portfolios:', 'buzz' ); ?></label>
+                <label for="<?php echo esc_attr( $this->get_field_id( 'posts_number' ) ); ?>"><?php esc_html_e( 'Number of Portfolios:', 'roboto' ); ?></label>
                 <input id="<?php echo esc_attr( $this->get_field_id( 'posts_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'posts_number' ) ); ?>" type="number" value="<?php echo esc_attr( $posts_number ); ?>" style="max-width:65px;" />
             </p>
 
@@ -669,10 +669,10 @@ if ( ! class_exists( 'WEN_Planet_Advanced_Recent_Posts_Widget' ) ) :
         function __construct() {
             $opts = array(
                 'classname'   => 'wen_planet_widget_advanced_recent_posts',
-                'description' => __( 'Advanced Recent Posts Widget. Displays recent posts with thumbnail.', 'buzz' ),
+                'description' => __( 'Advanced Recent Posts Widget. Displays recent posts with thumbnail.', 'roboto' ),
             );
 
-            parent::__construct( 'buzz-advanced-recent-posts', __( 'WEN Planet: Recent Posts', 'buzz' ), $opts );
+            parent::__construct( 'roboto-advanced-recent-posts', __( 'WEN Planet: Recent Posts', 'roboto' ), $opts );
         }
 
         /**
@@ -713,7 +713,7 @@ if ( ! class_exists( 'WEN_Planet_Advanced_Recent_Posts_Widget' ) ) :
                 'order'   => 'DESC',
                 'meta_query' => array(
                     array(
-                        'key'     => '_buzz_featured',
+                        'key'     => '_roboto_featured',
                         'value'   => 'on',
                         'compare' => '=',
                     ),
@@ -761,7 +761,7 @@ if ( ! class_exists( 'WEN_Planet_Advanced_Recent_Posts_Widget' ) ) :
                                         </h2>
                                     <?php endif;?>
                                     <ul class="sub-list">
-                                    <li><?php _e('by ','buzz');?><?php the_author_posts_link(); ?></li>
+                                    <li><?php _e('by ','roboto');?><?php the_author_posts_link(); ?></li>
                                     <?php if($i==1):?>
                                         <li><?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago'; ?></li>
                                         <li><?php comments_number( '0', '1 comment', '% comments' ); ?></li>
@@ -822,11 +822,11 @@ if ( ! class_exists( 'WEN_Planet_Advanced_Recent_Posts_Widget' ) ) :
 
             ?>
             <p>
-               <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'buzz' ); ?></label>
+               <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'roboto' ); ?></label>
                <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
             </p>
             <p>
-                <label for="<?php echo esc_attr( $this->get_field_id( 'post_category' ) ); ?>"><?php _e( 'Select Category:', 'buzz' ); ?></label>
+                <label for="<?php echo esc_attr( $this->get_field_id( 'post_category' ) ); ?>"><?php _e( 'Select Category:', 'roboto' ); ?></label>
                 <?php
                 $cat_args = array(
                     'orderby'         => 'name',
@@ -835,7 +835,7 @@ if ( ! class_exists( 'WEN_Planet_Advanced_Recent_Posts_Widget' ) ) :
                     'name'            => $this->get_field_name( 'post_category' ),
                     'id'              => $this->get_field_id( 'post_category' ),
                     'selected'        => $post_category,
-                    'show_option_all' => __( 'All Categories','buzz' ),
+                    'show_option_all' => __( 'All Categories','roboto' ),
                 );
                 wp_dropdown_categories( $cat_args );
                 ?>
