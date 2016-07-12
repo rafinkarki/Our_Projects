@@ -1,0 +1,100 @@
+.buzzleak-page .navbar-default .navbar-nav > li > a:hover,
+.buzzleak-page .navbar-default .navbar-nav > li > a:focus,
+.buzzleak-page .navbar-default .navbar-nav > .open > a,
+.buzzleak-page .navbar-default .navbar-nav > .open > a:hover,
+.buzzleak-page .navbar-default .navbar-nav > .open > a:focus {
+	color: #ed1c24;
+}
+.buzzleak-page .dropdown-menu > li > a:hover,
+.buzzleak-page .dropdown-menu > li > a:focus {
+
+	color: #ed1c24;
+}
+.buzzleak-page .top-banner .cap-btn {
+	background: #ed1c24;
+}
+.buzzleak-page .article-content .cap-btn {
+	background: #ed1c24;
+}
+
+.buzzleak-page .article-content .cap-btn:hover {
+	background: #c61017;
+}
+
+.buzzleak-page .article-main .cap-btn {
+	background: #ed1c24;
+}
+
+.buzzleak-page .article-main .cap-btn:hover {
+	background: #c61017;
+}
+
+.buzzleak-page .more-info-block .form-control.button {
+	background: #ed1c24;
+}
+.buzzleak-page .post-block.category .video-box:before {
+	background: #ed1c24;
+}
+.buzzleak-page .post-block.search .sub-list a {
+	color: #ed1c24;
+}
+.buzzleak-page .post-block.search h2 a:hover,
+.buzzleak-page .post-block.search h3 a:hover,
+.buzzleak-page .post-block.search h4 a:hover {
+	color: #ed1c24;
+}
+
+.buzzleak-page .pagination li.active a {
+	background: #ed1c24;
+}
+
+.buzzleak-page .pagination li a:hover {
+	background: #ed1c24;
+}
+.note-banner:after {
+	background: #ed1c24;
+}
+
+.note-banner .tending-now {
+	background: #ed1c24;
+}
+.note-banner .note-list li:before {
+	background: #ed1c24;
+}
+.post-block h2 a:hover {
+	color: #ed1c24;
+}
+.post-block a {
+	color: #ed1c24;
+}
+.post-block .sub-list li:before {
+	background: #ed1c24;
+}
+.post-block .load-more:hover {
+	background: #ed1c24;
+	border-color: #ed1c24;
+}
+.post-block .video-box:before {
+	background: #ed1c24;
+}
+.buzzleak-page .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+	.buzzleak-page .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: #ed1c24;
+	}
+
+.post-block h3 a:hover {
+	color: #ed1c24;
+}
+.buzzleak-page .top-banner .cap-btn:hover {
+	background: #c61017;
+}
+.buzzleak-page .article-content .cap-btn:hover {
+	background: #c61017;
+}
+
+.buzzleak-page .article-main .cap-btn:hover {
+	background: #c61017;
+}
+.buzzleak-page .more-info-block .form-control.button:hover {
+	background: #c61017;
+}
