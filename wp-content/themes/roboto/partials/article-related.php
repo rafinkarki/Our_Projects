@@ -1,6 +1,5 @@
 <?php // Exit if accessed directly
 if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} ?>
-<div class="pagination-holder row">
   <?php if (get_next_post_link('&laquo; %link', '%title', 1) OR get_previous_post_link('%link &raquo;', '%title', 1)) : ?>
       <div class="prev-next-btn" style="display:none;">
         <ul class="pager">
@@ -30,21 +29,31 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} ?>
 
  endif; ?>
  <?php if (get_next_post_link('&laquo; %link', '%title', 1) OR get_previous_post_link('%link &raquo;', '%title', 1)) : ?>
-   <div class="pagination-holder row">
-    <?php $prevPost = get_previous_post(true);?>
-    <div class="col-sm-6"><?php
-      if($prevPost) {
-        $prevthumbnail = '<span class="text">Previous Article</span>';
-        previous_post_link('%link',"$prevthumbnail  <strong class='title'>%title</strong>", TRUE);
-      } ?>
+   	<div class="rabto-next-prev-post-pagination">
+	    <?php $prevPost = get_previous_post(true);?>
+	    <div class="rabto-prev-post"><?php
+		      if($prevPost) {
+		        echo '<a href="#!" class="rabto-page-icon-wrapper">
+		                                    <i class=""></i>
+		                                </a> <div class="rabto-other-post-title-wrapper">
+		                                    <h4 class="rabto-pagination-title">Previous Article</h4>';                                
+		        previous_post_link('%link',"<h2>%title</h2>", TRUE);
+		        echo '</div>';
+		      } ?>
 
-   </div>
-   <div class="col-sm-6 right-pagination text-right">
-    <?php $nextPost = get_next_post(true);
-    if($nextPost) {
-      $nextthumbnail = '<span class="text">Next Article</span>' ;
-      next_post_link('%link',"$nextthumbnail  <strong class='title'>%title</strong>", TRUE);
-    } ?>
-    </a></div>
-  </div><?php
+	    </div>
+	    <div class="rabto-next-post">
+		    <?php $nextPost = get_next_post(true);
+		    if($nextPost) {
+		      echo ' <a href="#" class="rabto-page-icon-wrapper">
+		                <i class=""></i>
+		            </a>
+		            <div class="rabto-other-post-title-wrapper">
+		                <h4 class="rabto-pagination-title">Next Article</h4>';
+		      next_post_link('%link',"<h2>%title</h2>", TRUE);
+		      echo '</div>';
+		    } ?>
+	    </div>
+  	</div>
+<?php
  endif; ?>

@@ -71,7 +71,7 @@ function rabto_widgets_setup() {
             'name' => __("Post Sidebar Widget Here", 'rabto'),
             'id' => "rabto-post-sidebar",
             'description' => __('Widgets placed here will display in the post detail page', 'rabto'),
-            'before_widget' => '<div id="%1$s" class="widget %2$s rabto-addvertisment-space rabto-sidebar-widget">',
+            'before_widget' => '<div id="%1$s" class="widget %2$s rabto-sidebar-widget">',
             'after_widget'  => '</div>',
             'before_title'  => '<h3 class="rabto-sidebar-widget-title">',
             'after_title'   => '</h3>'
@@ -342,6 +342,10 @@ function rabto_register_required_plugins() {
             'name'      => 'MailChimp For Wordpress',
             'slug'       => 'mailchimp-for-wp',
             'required'    => true,
+        ),array(
+            'name'      => 'Mashsharer',
+            'slug'       => 'mashsharer',
+            'required'    => true,
         )
     );
 
@@ -392,36 +396,27 @@ function rabto_comment($comment, $args, $depth) {
     extract($args, EXTR_SKIP);
 
 ?>
-    <li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
-    <div class="holder">
-        <div class="img-avatar">
+    <li <?php comment_class( empty( $args['has_children'] ) ? 'rabto-comments' : 'parent rabto-comments' ) ?> id="comment-<?php comment_ID() ?>">
+        <div class="rabto-user-img">
             <img class="img-circle media-object" src="<?php echo get_avatar_url(get_avatar( $comment, $args['avatar_size'] )); ?>" alt="Generic placeholder image">
         </div>
-        <div class="text-box">
+        <div class="rabto-comment-details">
         <?php if($depth>1): echo '<div class="media">'; else : echo'<div class="media-body">'; endif;?>
-            <h3><?php echo get_comment_author_link(); ?>
-                <span>- <?php
+            <h3><a href="#!"><?php echo get_comment_author_link(); ?></a>
+                <span class="rabto-comment-time"><?php
                             /* translators: 1: date, 2: time */
                             printf( __('%1$s at %2$s','rabto'), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)','rabto' ), '  ', '' );
                         ?>
                 </span>
             </h3>
             <p><?php comment_text(); ?></p>
-            <div class="reply-box"><span class="reply"><?php comment_reply_link(array_merge( $args, array('reply_text' => 'Reply','depth' => $depth, 'max_depth' => $args['max_depth']))) ?></span></div>
+            <div class="reply-box rabto-comment-reply"><?php comment_reply_link(array_merge( $args, array('reply_text' => 'Reply','depth' => $depth, 'max_depth' => $args['max_depth']))) ?></div>
             <div class="comment-block">
             <?php if ( $comment->comment_approved == '0' ) : ?>
                 <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.','rabto' ); ?></em>
                 <br />
             <?php endif; ?>
-
-                <div class="metas">
-                    <div class="date">
-                        <p><i class="fa fa-calendar"></i> </p>
-                    </div>
-                </div>
             </div>
-        </div>
-        </div>
         </div>
     </li>
 

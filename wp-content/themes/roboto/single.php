@@ -1,23 +1,12 @@
 <?php // Exit if accessed directly
 if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); ?>
 <?php global $rabto_options; rabto_setPostViews(get_the_ID());?>
-<div class="top-banner"></div>
+<section class="rabto-latest-article-section rabto-section rabto-single-post-section">
     <div class="container">
-        <div class="post-block category">
-            <div class="row content-frame">
-            <?php if(isset($rabto_options['single_blog']) && $rabto_options['single_blog']==1):?>
-                <div class="sidebar">
-                    <?php if ( is_active_sidebar( 'rabto-widgets-sidebar' ) ) {
-                        dynamic_sidebar( 'rabto-widgets-sidebar' );
-                     } ?>
-                </div>
-            <?php endif;?>
-            <?php if($rabto_options['single_blog']!=1):?>
-                <div class="content-main">
-            <?php else:?>
-                <div class="content-main">
-            <?php endif;
+        <div class="row">
+            <?php
                 if (have_posts()) :
+                    echo '<div class="rabto-main-content col-md-8 col-sm-8 col-xs-12">';
                     while (have_posts()) : the_post();
                         get_template_part('partials/article');
                         if(isset($rabto_options['author_detail']) && $rabto_options['author_detail']==1)
@@ -26,10 +15,24 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); ?>
                             get_template_part('partials/article-related-posts');
                         comments_template( '', true );
                     endwhile;
+                    echo '</div>';
                 endif;?>
+            <?php if(isset($rabto_options['single_blog']) && $rabto_options['single_blog']==1):?>
+                 <div class="rabto-sidebar-wrapper col-md-4 col-sm-4 col-xs-12">
+                    <?php if ( is_active_sidebar( 'rabto-post-sidebar' ) ) {
+                        dynamic_sidebar( 'rabto-post-sidebar' );
+                     } ?>
+                    <div class="rabto-sidebar">
+                         <?php if ( is_active_sidebar( 'rabto-widgets-sidebar' ) ) {
+                            dynamic_sidebar( 'rabto-widgets-sidebar' );
+                         } ?><?php if ( is_active_sidebar( 'rabto-trending-sidebar' ) ) {
+                            dynamic_sidebar( 'rabto-trending-sidebar' );
+                         } ?>
+                    </div>
                 </div>
+            <?php endif;?>
             </div>
         </div>
     </div>
-</div>
+</section>
 <?php get_footer(); ?>

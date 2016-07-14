@@ -206,3 +206,101 @@ footer .rabto-footer-top .rabto-footer-widgets-area .rabto-footer-widget .menu-m
 footer .rabto-footer-top .rabto-footer-widgets-area .rabto-footer-widget .menu-main-menu-container ul li:last-child {
   margin-bottom: 0;
 }
+.rabto-post-title-metas span.rabto-category-meta {
+    padding: 10px 15px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+}
+span.rabto-category-meta {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: #fffefe;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 20px;
+  background-color: #fe6f19;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+}
+span.rabto-category-meta a{
+    color:#fff;
+}
+.rabto-post-title-metas div.rabto-news-post-excerpt p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #8e8e8e;
+    font-weight: 400;
+    margin-bottom: 35px;
+}
+span.rabto-category-meta .rabto-comments-counter a{
+    color:#a8a8a8;
+}
+.rabto-next-prev-post-pagination .rabto-next-post .rabto-other-post-title-wrapper a h2,
+.rabto-next-prev-post-pagination .rabto-prev-post .rabto-other-post-title-wrapper a h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #232323;
+    font-weight: 400;
+    line-height: 26px;
+    -webkit-transition: all 0.35s ease;
+    -moz-transition: all 0.35s ease;
+    -ms-transition: all 0.35s ease;
+    -o-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+}
+.rabto-next-prev-post-pagination .rabto-prev-post .rabto-other-post-title-wrapper a h2:hover,.rabto-next-prev-post-pagination .rabto-next-post .rabto-other-post-title-wrapper h2 a:hover {
+    color: #fe6f19;
+}
+.rabto-comments .rabto-comment-details div.rabto-comment-reply {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: #232323;
+    font-weight: 400;
+    margin-top: 14px;
+    line-height: 1;
+    -webkit-transition: all 0.35s ease;
+    -moz-transition: all 0.35s ease;
+    -ms-transition: all 0.35s ease;
+    -o-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+}
+form .rabto-subscription-widget .rabto-subscription-form button {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    color: #ffffff;
+    width: 100%;
+    display: block;
+    height: 45px;
+    line-height: 45px;
+    background-color: #fe6f19;
+    border: 0;
+    outline: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}
+form .rabto-subscription-widget .rabto-subscription-form input {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: #8f8f8f;
+    padding: 0 20px 0 30px;
+    background-color: #ebebeb;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    border: 0;
+    outline: 0;
+    margin-bottom: 13px;
+}
+.rabto-comments:last-child{
+    margin-bottom: 25px
+}

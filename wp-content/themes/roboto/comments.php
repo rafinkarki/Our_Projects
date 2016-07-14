@@ -2,7 +2,8 @@
 if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} ?>
 
 <?php if (comments_open()) : ?>
-<div id="comments-single" class="clearfix">
+<div id="comments" class="clearfix">
+    <div class="rabto-comments-section">
     <?php if ( post_password_required() ) : ?>
         <p class="nopassword">
             <?php _e( 'This post is password protected. Enter the password to view any comments.', 'rabto' ); ?>
@@ -10,16 +11,16 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} ?>
     <?php return; endif;
     $ncom = get_comments_number();
     if ($ncom>0) :
-        echo '<header class="heading"><h2>';
+        echo '<h3 class="rabto-wrapper-title">';
         if ($ncom==1) _e('1 ', 'rabto'); else echo sprintf (__('%s ','rabto'), $ncom);
         _e('Comments','rabto');
-        echo '</h2></header>';
+        echo '</h3>';
         if ($ncom >= get_option('comments_per_page') && get_option('page_comments')) : ?>
             <nav id="comment-nav-above">
                 <?php paginate_comments_links(); ?>
             </nav>
         <?php endif; ?>
-        <div class="comment-list">
+        <div class="rabto-comments-details-wrapper rabto-single-wrapper">
             <ul class="comment-reply">
                 <?php
                 // Comment List
@@ -40,28 +41,31 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} ?>
             </nav>
         <?php endif;
      endif; ?>
-    <header class="heading" id="heading">
-        <h2><?php _e('Leave a reply','rabto'); ?></h2>
-    </header><!-- end section title -->
+</div>
+    <div class="rabto-comments-submit-section">
+    <h3 class="rabto-wrapper-title"><?php _e('Leave a reply','rabto'); ?></h3>
         <?php global $req,$commenter;
         // Comment Form
         $aria_req = ( $req ? " aria-required='true'" : '' );
         $fields =  array(
-            'author' => '<div class="input-wrap"><div class="form-group"><input  id="author" type="text" class="form-control" name="author" placeholder="Name*" value="' . esc_attr( $commenter['comment_author'] ) . '" '. $aria_req . '></div>',
-            'email'  => '<div class="form-group"><input id="email" type="text" class="form-control" placeholder="Email*" name="email"  value="' . esc_attr(  $commenter['comment_author_email'] ) . '"' . $aria_req . ' ></div>',
-             'website'  => '<div class="form-group"><input id="website" type="text" class="form-control" placeholder="Website" name="website"  value="' . esc_attr(  $commenter['comment_author_website'] ) . '"></div></div>',
+            'author' => '<input  id="author" type="text" name="author" placeholder="Name*" value="' . esc_attr( $commenter['comment_author'] ) . '" '. $aria_req . '>',
+            'email'  => '<input id="email" type="text" placeholder="Email*" name="email"  value="' . esc_attr(  $commenter['comment_author_email'] ) . '"' . $aria_req . ' >',
+             'website'  => '<input id="website" type="text" placeholder="Website" name="website"  value="' . esc_attr(  $commenter['comment_author_website'] ) . '">',
         );
         $args = array (
             'fields' => apply_filters( 'comment_form_default_fields', $fields ),
             'id_form' => 'comments_form',
             'cancel_reply_link'=>'Cancel',
             'id_submit' => 'comment-submit',
-            'comment_field' =>  '<div class="form-group"><textarea id="comment" name="comment" cols="30" rows="10" class="form-control" placeholder="Comment*"></textarea></div>',
-            'comment_notes_after' => '<div class="btn-wrap"><input type="submit" id="submit" value="Post Comment" class="btn-load"></div>',
+            'comment_field' =>  '<div class="form-group"><textarea id="comment" name="comment" cols="30" rows="10" placeholder="Comment*"></textarea></div>',
+            'comment_notes_after' => '<button type="submit" id="submit" class="rabto-submit-btn">Post Comment</button>',
             'logged_in_as' => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>','rabto'), get_edit_user_link(), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink($post->ID) ) ) ) . '</p>',
         );
-        comment_form($args);
+        echo '<div class="rabto-comments-form rabto-single-wrapper">';
+            comment_form($args);
+        echo '</div>';
         //echo str_replace('class="comment-form"','class="reply-form"',ob_get_clean());
         ?>
+    </div>
 </div>
 <?php endif; ?>
