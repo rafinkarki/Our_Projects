@@ -1,20 +1,20 @@
 <?php global $metaboxes;
 $metaboxes = array(
     'link' => array(
-        'title' => __('Link Settings', 'roboto'),
+        'title' => __('Link Settings', 'rabto'),
         'applicableto' => 'post',
         'location' => 'normal',
         'display_condition' => 'post-format-link',
         'priority' => 'high',
         'fields' => array(
             'link_title' => array(
-                'title' => __('Link Title:', 'roboto'),
+                'title' => __('Link Title:', 'rabto'),
                 'type' => 'text',
                 'description' => '',
                 'size' => 60
             ),
             'link_url' => array(
-                'title' => __('link url:', 'roboto'),
+                'title' => __('link url:', 'rabto'),
                 'type' => 'text',
                 'description' => '',
                 'size' => 60
@@ -23,14 +23,14 @@ $metaboxes = array(
     ),
 
     'video_code' => array(
-        'title' => __('Video Settings', 'roboto'),
+        'title' => __('Video Settings', 'rabto'),
         'applicableto' => 'post',
         'location' => 'normal',
         'display_condition' => 'post-format-video',
         'priority' => 'high',
         'fields' => array(
             'video_id' => array(
-                'title' => __('Video url:', 'roboto'),
+                'title' => __('Video url:', 'rabto'),
                 'type' => 'text',
                 'description' => '',
                 'size' => 60
@@ -39,14 +39,14 @@ $metaboxes = array(
     ),
 
     'audio_code' => array(
-        'title' => __('Audio Settings', 'roboto'),
+        'title' => __('Audio Settings', 'rabto'),
         'applicableto' => 'post',
         'location' => 'normal',
         'display_condition' => 'post-format-audio',
         'priority' => 'high',
         'fields' => array(
             'audio_id' => array(
-                'title' => __('Audio url:', 'roboto'),
+                'title' => __('Audio url:', 'rabto'),
                 'type' => 'text',
                 'description' => '',
                 'size' => 60
@@ -55,7 +55,7 @@ $metaboxes = array(
     ),
 
     'quote_author' => array(
-        'title' => __('Quote Settings', 'roboto'),
+        'title' => __('Quote Settings', 'rabto'),
         'applicableto' => 'post',
         'location' => 'normal',
         'display_condition' => 'post-format-quote',
@@ -63,14 +63,14 @@ $metaboxes = array(
         'fields' => array(
 
             'q_content' => array(
-                'title' => __('Quote content:', 'roboto'),
+                'title' => __('Quote content:', 'rabto'),
                 'type' => 'textarea',
                 'description' => '',
                 'size' => 20
             ),
 
             'q_author' => array(
-                'title' => __('quote author:', 'roboto'),
+                'title' => __('quote author:', 'rabto'),
                 'type' => 'text',
                 'description' => '',
                 'size' => 20
@@ -79,19 +79,19 @@ $metaboxes = array(
     )
 );
 
-add_action( 'add_meta_boxes', 'roboto_add_post_format_metabox' );
+add_action( 'add_meta_boxes', 'rabto_add_post_format_metabox' );
 
-function roboto_add_post_format_metabox() {
+function rabto_add_post_format_metabox() {
     global $metaboxes;
 
     if ( ! empty( $metaboxes ) ) {
         foreach ( $metaboxes as $id => $metabox ) {
-            add_meta_box( $id, $metabox['title'], 'roboto_show_metaboxes', $metabox['applicableto'], $metabox['location'], $metabox['priority'], $id );
+            add_meta_box( $id, $metabox['title'], 'rabto_show_metaboxes', $metabox['applicableto'], $metabox['location'], $metabox['priority'], $id );
         }
     }
 }
 
-function roboto_show_metaboxes( $post, $args ) {
+function rabto_show_metaboxes( $post, $args ) {
     global $metaboxes;
 
     $custom = get_post_custom( $post->ID );
@@ -119,9 +119,9 @@ function roboto_show_metaboxes( $post, $args ) {
 }
 
 
-add_action( 'save_post', 'roboto_save_metaboxes' );
+add_action( 'save_post', 'rabto_save_metaboxes' );
 
-function roboto_save_metaboxes( $post_id ) {
+function rabto_save_metaboxes( $post_id ) {
     global $metaboxes;
 
     // verify nonce
@@ -169,8 +169,8 @@ function roboto_save_metaboxes( $post_id ) {
 }
 
 
-add_action( 'admin_print_scripts', 'roboto_display_metaboxes', 1000 );
-function roboto_display_metaboxes() {
+add_action( 'admin_print_scripts', 'rabto_display_metaboxes', 1000 );
+function rabto_display_metaboxes() {
     global $metaboxes;
     if ( get_post_type() == "post" ) :
         ?>
@@ -232,14 +232,14 @@ function be_attachment_field_credit_save( $post, $attachment ) {
 add_filter( 'attachment_fields_to_save', 'be_attachment_field_credit_save', 10, 2 );
 
 
-add_filter( 'cmb_meta_boxes', 'roboto_cmb_metaboxes' );
-function roboto_cmb_metaboxes( array $meta_boxes ) {
+add_filter( 'cmb_meta_boxes', 'rabto_cmb_metaboxes' );
+function rabto_cmb_metaboxes( array $meta_boxes ) {
 
-    $prefix = 'roboto_';
+    $prefix = 'rabto_';
 
      $meta_boxes['page_metabox'] = array(
         'id'         => 'page_metabox',
-        'title'      => __( 'Creativ Page Settings', 'roboto' ),
+        'title'      => __( 'Creativ Page Settings', 'rabto' ),
         'pages'      => array( 'page'), // Post type
         'context'    => 'normal',
         'priority'   => 'high',
@@ -247,8 +247,8 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
         'fields'     => array(
             array(
                 'id'      => $prefix . 'template_color',
-                'name'    => __( 'Select Template Background Color','roboto'),
-                'desc' => __('Background color of selected template will change accordingly except builder templates', 'roboto') ,
+                'name'    => __( 'Select Template Background Color','rabto'),
+                'desc' => __('Background color of selected template will change accordingly except builder templates', 'rabto') ,
                 'type'    => 'select',
                 'options' => array(
                     'white' => 'White Background',
@@ -257,7 +257,7 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
             ),
             array(
                 'id'      => $prefix . 'breadcrumb_option',
-                'name'    => __( 'Page Breadcrumb Options','roboto'),
+                'name'    => __( 'Page Breadcrumb Options','rabto'),
                 'type'    => 'select',
                 'options' => array(
                     'normal'   => 'Normal Breadcrumb',
@@ -265,8 +265,8 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
                 )
             ),
             array(
-                'name' => __('Background Breadcrumb Image', 'roboto') ,
-                'desc' => __('Upload an image or enter a URL. This works only for Breadcrumb Background Image style.', 'roboto') ,
+                'name' => __('Background Breadcrumb Image', 'rabto') ,
+                'desc' => __('Upload an image or enter a URL. This works only for Breadcrumb Background Image style.', 'rabto') ,
                 'id' => $prefix . 'breadcrumb_image',
                 'type' => 'file',
             ) ,
@@ -283,7 +283,7 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
                 'type' => 'text'
             ),
             array(
-                'name' =>  __( 'Hide Social Icons', 'roboto' ),
+                'name' =>  __( 'Hide Social Icons', 'rabto' ),
                 'desc' => 'Donot display social icons on footer area.Shows icons when footer icon setting is turned on.',
                 'id' => $prefix . 'social_icons',
                 'type' => 'checkbox'
@@ -293,7 +293,7 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
     );
     $meta_boxes['post_metabox'] = array(
         'id'         => 'post_metabox',
-        'title'      => __( 'Creativ Post Page Settings', 'roboto' ),
+        'title'      => __( 'Creativ Post Page Settings', 'rabto' ),
         'pages'      => array( 'post' ), // Post type
         'context'    => 'normal',
         'priority'   => 'high',
@@ -302,7 +302,7 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
 
             array(
                 'id'      => $prefix . 'breadcrumb_option',
-                'name'    => __( 'Page Breadcrumb Options','roboto'),
+                'name'    => __( 'Page Breadcrumb Options','rabto'),
                 'type'    => 'select',
                 'options' => array(
                     'normal'   => 'Normal Breadcrumb',
@@ -310,8 +310,8 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
                 )
             ),
             array(
-                'name' => __('Background Breadcrumb Image', 'roboto') ,
-                'desc' => __('Upload an image or enter a URL. This works only for Breadcrumb Background Image style.', 'roboto') ,
+                'name' => __('Background Breadcrumb Image', 'rabto') ,
+                'desc' => __('Upload an image or enter a URL. This works only for Breadcrumb Background Image style.', 'rabto') ,
                 'id' => $prefix . 'breadcrumb_image',
                 'type' => 'file',
             ) ,
@@ -328,7 +328,7 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
                 'type' => 'text'
             ),
             array(
-                'name' =>  __( 'Hide Social Icons', 'roboto' ),
+                'name' =>  __( 'Hide Social Icons', 'rabto' ),
                 'desc' => 'Donot display social icons on footer area.Shows icons when footer icon setting is turned on.',
                 'id' => $prefix . 'social_icons',
                 'type' => 'checkbox'
@@ -340,7 +340,7 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
 
      $meta_boxes['portfolio_metabox'] = array(
         'id'         => 'portfolio_metabox',
-        'title'      => __( 'Custom Portfolio Options', 'roboto' ),
+        'title'      => __( 'Custom Portfolio Options', 'rabto' ),
         'pages'      => array( 'portfolio' ),
         'context'    => 'normal',
         'normal'   => 'high',
@@ -348,7 +348,7 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
         'fields'     => array(
             array(
                 'id'      => $prefix . 'breadcrumb_option',
-                'name'    => __( 'Page Breadcrumb Options','roboto'),
+                'name'    => __( 'Page Breadcrumb Options','rabto'),
                 'type'    => 'select',
                 'options' => array(
                     'normal'   => 'Normal Breadcrumb',
@@ -356,8 +356,8 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
                 )
             ),
             array(
-                'name' => __('Background Breadcrumb Image', 'roboto') ,
-                'desc' => __('Upload an image or enter a URL. This works only for Breadcrumb Background Image style.', 'roboto') ,
+                'name' => __('Background Breadcrumb Image', 'rabto') ,
+                'desc' => __('Upload an image or enter a URL. This works only for Breadcrumb Background Image style.', 'rabto') ,
                 'id' => $prefix . 'breadcrumb_image',
                 'type' => 'file',
             ) ,
@@ -374,7 +374,7 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
                 'type' => 'text'
             ),
             array(
-                'name' =>  __( 'Hide Social Icons', 'roboto' ),
+                'name' =>  __( 'Hide Social Icons', 'rabto' ),
                 'desc' => 'Donot display social icons on footer area.Shows icons when footer icon setting is turned on.',
                 'id' => $prefix . 'social_icons',
                 'type' => 'checkbox'
@@ -384,8 +384,8 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
                 'id'      => $prefix . 'featured_project',
                 'type'    => 'radio',
                 'options' => array(
-                    'yes' => __( 'Yes', 'roboto' ),
-                    'no'   => __( 'No', 'roboto' ),
+                    'yes' => __( 'Yes', 'rabto' ),
+                    'no'   => __( 'No', 'rabto' ),
                 ),
             ),
             array(
@@ -411,7 +411,7 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
     );
     $meta_boxes['event_metabox'] = array(
             'id'         => 'event_metabox',
-            'title'      => __( 'Custom Event Options', 'roboto' ),
+            'title'      => __( 'Custom Event Options', 'rabto' ),
             'pages'      => array( 'event' ),
             'context'    => 'normal',
             'normal'   => 'high',
@@ -422,8 +422,8 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
                     'id'      => $prefix . 'event',
                     'type'    => 'radio',
                     'options' => array(
-                        'yes' => __( 'Yes', 'roboto' ),
-                        'no'   => __( 'No', 'roboto' ),
+                        'yes' => __( 'Yes', 'rabto' ),
+                        'no'   => __( 'No', 'rabto' ),
                     ),
                 ),
                 array(
@@ -443,7 +443,7 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
         );
      $meta_boxes['menu_metabox'] = array(
             'id'         => 'menu_metabox',
-            'title'      => __( 'Custom Menu Options', 'roboto' ),
+            'title'      => __( 'Custom Menu Options', 'rabto' ),
             'pages'      => array( 'menu' ),
             'context'    => 'normal',
             'normal'   => 'high',
@@ -454,8 +454,8 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
                     'id'      => $prefix . 'featured',
                     'type'    => 'radio',
                     'options' => array(
-                        'yes' => __( 'Yes', 'roboto' ),
-                        'no'   => __( 'No', 'roboto' ),
+                        'yes' => __( 'Yes', 'rabto' ),
+                        'no'   => __( 'No', 'rabto' ),
                     ),
                     'default' =>'no',
                 ),
@@ -468,70 +468,6 @@ function roboto_cmb_metaboxes( array $meta_boxes ) {
 
             )
         );
-     $meta_boxes['team_metabox'] = array(
-            'id'         => 'team_metabox',
-            'title'      => __( 'Custom Team Page Options', 'roboto' ),
-            'pages'      => array( 'team' ),
-            'context'    => 'normal',
-            'normal'   => 'high',
-            'show_names' => true, // Show field names on the left
-            'fields'     => array(
-                 array(
-                    'id'      => $prefix . 'breadcrumb_option',
-                    'name'    => __( 'Page Breadcrumb Options','roboto'),
-                    'type'    => 'select',
-                    'options' => array(
-                        'normal'   => 'Normal Breadcrumb',
-                        'bg_image' => 'Breadcrumb Backgroud Image',
-                    )
-                ),
-                array(
-                    'name' => __('Background Breadcrumb Image', 'roboto') ,
-                    'desc' => __('Upload an image or enter a URL. This works only for Breadcrumb Background Image style.', 'roboto') ,
-                    'id' => $prefix . 'breadcrumb_image',
-                    'type' => 'file',
-                ) ,
-                array(
-                    'name' => 'Title',
-                    'desc' => 'You can set custom page title.',
-                    'id' => $prefix . 'pagetitle_title',
-                    'type' => 'text'
-                ),
-                array(
-                    'name' => 'Subitle',
-                    'desc' => 'You can set custom page title.',
-                    'id' => $prefix . 'pagetitle_subtitle',
-                    'type' => 'text'
-                ),
-                array(
-                    'name' =>  __( 'Hide Social Icons', 'roboto' ),
-                    'desc' => 'Donot display social icons on footer area.Shows icons when footer icon setting is turned on.',
-                    'id' => $prefix . 'social_icons',
-                    'type' => 'checkbox'
-                ),
-
-                array(
-                    'name' => 'Personal Facebook Url',
-                    'desc' => 'Please enter the client\'s facebook url',
-                    'id' => $prefix . 'facebook',
-                    'type' => 'text_medium'
-                ),
-                 array(
-                    'name' => 'Personal Twitter Url',
-                    'desc' => 'Please enter the client\'s twitter url',
-                    'id' => $prefix . 'twitter',
-                    'type' => 'text_medium'
-                ),
-                array(
-                    'name' => 'Personal Google Url',
-                    'desc' => 'Please enter the client\'s google url',
-                    'id' => $prefix . 'google',
-                    'type' => 'text_medium'
-                ),
-
-            )
-        );
-
     return $meta_boxes;
 }
 

@@ -109,8 +109,8 @@ if (!class_exists('Redux_Framework_sample_config')) {
         function dynamic_section($sections) {
             //$sections = array();
             $sections[] = array(
-                'title' => __('Section via hook', 'roboto'),
-                'desc' => __('<p class="description">This is a section created by adding a filter to the sections array. Can be used by child themes to add/remove sections from the options.</p>', 'roboto'),
+                'title' => __('Section via hook', 'rabto'),
+                'desc' => __('<p class="description">This is a section created by adding a filter to the sections array. Can be used by child themes to add/remove sections from the options.</p>', 'rabto'),
                 'icon' => 'el-icon-paper-clip',
                 // Leave this as a blank section, no options just some intro text set above.
                 'fields' => array()
@@ -188,31 +188,31 @@ if (!class_exists('Redux_Framework_sample_config')) {
             $screenshot     = $this->theme->get_screenshot();
             $class          = $screenshot ? 'has-screenshot' : '';
 
-            $customize_title = sprintf(__('Customize &#8220;%s&#8221;', 'roboto'), $this->theme->display('Name'));
+            $customize_title = sprintf(__('Customize &#8220;%s&#8221;', 'rabto'), $this->theme->display('Name'));
 
             ?>
             <div id="current-theme" class="<?php echo esc_attr($class); ?>">
             <?php if ($screenshot) : ?>
                 <?php if (current_user_can('edit_theme_options')) : ?>
                         <a href="<?php echo wp_customize_url(); ?>" class="load-customize hide-if-no-customize" title="<?php echo esc_attr($customize_title); ?>">
-                            <img src="<?php echo esc_url($screenshot); ?>" alt="<?php esc_attr_e('Current theme preview','roboto'); ?>" />
+                            <img src="<?php echo esc_url($screenshot); ?>" alt="<?php esc_attr_e('Current theme preview','rabto'); ?>" />
                         </a>
                 <?php endif; ?>
-                    <img class="hide-if-customize" src="<?php echo esc_url($screenshot); ?>" alt="<?php esc_attr_e('Current theme preview','roboto'); ?>" />
+                    <img class="hide-if-customize" src="<?php echo esc_url($screenshot); ?>" alt="<?php esc_attr_e('Current theme preview','rabto'); ?>" />
                 <?php endif; ?>
 
                 <h4><?php echo $this->theme->display('Name'); ?></h4>
 
                 <div>
                     <ul class="theme-info">
-                        <li><?php printf(__('By %s', 'roboto'), $this->theme->display('Author')); ?></li>
-                        <li><?php printf(__('Version %s', 'roboto'), $this->theme->display('Version')); ?></li>
-                        <li><?php echo '<strong>' . __('Tags', 'roboto') . ':</strong> '; ?><?php printf($this->theme->display('Tags')); ?></li>
+                        <li><?php printf(__('By %s', 'rabto'), $this->theme->display('Author')); ?></li>
+                        <li><?php printf(__('Version %s', 'rabto'), $this->theme->display('Version')); ?></li>
+                        <li><?php echo '<strong>' . __('Tags', 'rabto') . ':</strong> '; ?><?php printf($this->theme->display('Tags')); ?></li>
                     </ul>
                     <p class="theme-description"><?php echo $this->theme->display('Description'); ?></p>
             <?php
             if ($this->theme->parent()) {
-                printf(' <p class="howto">' . __('This <a href="%1$s">child theme</a> requires its parent theme, %2$s.','roboto') . '</p>', __('http://codex.wordpress.org/Child_Themes', 'roboto'), $this->theme->parent()->display('Name'));
+                printf(' <p class="howto">' . __('This <a href="%1$s">child theme</a> requires its parent theme, %2$s.','rabto') . '</p>', __('http://codex.wordpress.org/Child_Themes', 'rabto'), $this->theme->parent()->display('Name'));
             }
             ?>
 
@@ -235,91 +235,110 @@ if (!class_exists('Redux_Framework_sample_config')) {
 
             // ACTUAL DECLARATION OF SECTIONS
             $this->sections[] = array(
-                'title'     => __('General Options', 'roboto'),
+                'title'     => __('General Options', 'rabto'),
                 'icon'      => 'el-icon-home',
                 // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                 'fields'    => array(
                     array(
                         'id'        => 'custom_color_primary',
                         'type'      => 'color',
-                        'title'     => __('Theme Color', 'roboto'),
-                        'subtitle'  => __('Choose a color for your theme.', 'roboto'),
+                        'title'     => __('Theme Color', 'rabto'),
+                        'subtitle'  => __('Choose a color for your theme.', 'rabto'),
                         ),array(
                         'id'        => 'custom_color_hover',
                         'type'      => 'color',
-                        'title'     => __('Hover Color', 'roboto'),
-                        'subtitle'  => __('Choose a hover color for your theme.', 'roboto'),
+                        'title'     => __('Hover Color', 'rabto'),
+                        'subtitle'  => __('Choose a hover color for your theme.', 'rabto'),
                         ),
                     array(
                         'id'        => 'logo',
                         'type'      => 'media',
-                        'title'     => __('Logo Normal', 'roboto'),
+                        'title'     => __('Logo Normal', 'rabto'),
                         'compiler'  => 'true',
                         'mode'      => false, // Can be set to false to allow any media type, or can also be set to any mime type.
-                        'subtitle'  => __('Upload header logo for your website', 'roboto'),
+                        'subtitle'  => __('Upload header logo for your website', 'rabto'),
 
                     ),array(
                         'id'        => 'favicon',
                         'type'      => 'media',
-                        'title'     => __('Favicon Image', 'roboto'),
+                        'title'     => __('Favicon Image', 'rabto'),
                         'compiler'  => 'true',
                         'mode'      => false, // Can be set to false to allow any media type, or can also be set to any mime type.
-                        'subtitle'  => __('Upload favicon logo for your website', 'roboto'),
+                        'subtitle'  => __('Upload favicon logo for your website', 'rabto'),
 
                     ),array(
                         'id'        => 'retina',
                         'type'      => 'media',
-                        'title'     => __('Retina Logo', 'roboto'),
+                        'title'     => __('Retina Logo', 'rabto'),
                         'compiler'  => 'true',
                         'mode'      => false, // Can be set to false to allow any media type, or can also be set to any mime type.
-                        'subtitle'  => __('Upload retina logo for website', 'roboto'),
+                        'subtitle'  => __('Upload retina logo for website', 'rabto'),
 
                     ),
                 ),
             );
             $this->sections[] = array(
                 'icon'      => 'el-icon-website',
-                'title'     => __('Menu/Header Options', 'roboto'),
+                'title'     => __('Menu/Header Options', 'rabto'),
                 'fields'    => array(
                     array(
                         'id'        => 'search',
                         'type'      => 'switch',
-                        'title'     => __('Show Search', 'roboto'),
-                        'subtitle'  => __('Show search button on the header', 'roboto'),
+                        'title'     => __('Show Search', 'rabto'),
+                        'subtitle'  => __('Show search button on the header', 'rabto'),
                         'default'   => '1',
                     ),array(
                         'id'        => 'sticky',
                         'type'      => 'switch',
-                        'title'     => __('Sticky Header', 'roboto'),
-                        'subtitle'  => __('Make header sticky for your website', 'roboto'),
+                        'title'     => __('Sticky Header', 'rabto'),
+                        'subtitle'  => __('Make header sticky for your website', 'rabto'),
                         'default'   => '1',
                     ),
                 ),
             );
             $this->sections[] = array(
                     'icon'      => 'el-icon-eye-open',
-                    'title'     => __('Pages Options', 'roboto'),
-                    'desc'      => __('<p class="description">You can change pages layout and attributes.</p>', 'roboto'),
+                    'title'     => __('Pages Options', 'rabto'),
+                    'desc'      => __('<p class="description">You can change pages layout and attributes.</p>', 'rabto'),
                     'fields'    => array(
+                        array(
+                            'id'        => 'must_read',
+                            'type'      => 'switch',
+                            'title'     => __('Show Must Read', 'rabto'),
+                            'subtitle'  => __('Show must read post\'s list in main page.', 'rabto'),
+                            'default'   => '1',
+                        ), 
+                        array(
+                            'id'        => 'right_must_read',
+                            'type'      => 'text',
+                            'title'     => __('Number of must read posts in number(right side)', 'rabto'),
+                            'default'   => '5',
+                        ), array(
+                            'id'        => 'left_must_read',
+                            'type'      => 'text',
+                            'title'     => __('Number of must read posts in list view(left side) ', 'rabto'),
+                            'default'   => '3',
+                        ), 
+
                         array(
                             'id'        => 'single_blog',
                             'type'      => 'switch',
-                            'title'     => __('Show Sidebar', 'roboto'),
-                            'subtitle'  => __('Show sidebar in single post page.', 'roboto'),
+                            'title'     => __('Show Sidebar', 'rabto'),
+                            'subtitle'  => __('Show sidebar in single post page.', 'rabto'),
                             'default'   => '1',
                         ),
                          array(
                             'id'        => 'author_detail',
                             'type'      => 'switch',
-                            'title'     => __('Author Detail', 'roboto'),
-                            'subtitle'  => __('Show author detail in single post page.', 'roboto'),
+                            'title'     => __('Author Detail', 'rabto'),
+                            'subtitle'  => __('Show author detail in single post page.', 'rabto'),
                             'default'   => '1',
                         ),
                          array(
                             'id'        => 'related_post',
                             'type'      => 'switch',
-                            'title'     => __('Show Related Post', 'roboto'),
-                            'subtitle'  => __('Show related posts in single post page.', 'roboto'),
+                            'title'     => __('Show Related Post', 'rabto'),
+                            'subtitle'  => __('Show related posts in single post page.', 'rabto'),
                             'default'   => '1',
                         ),
                     )
@@ -327,28 +346,45 @@ if (!class_exists('Redux_Framework_sample_config')) {
 
             $this->sections[] = array(
                 'icon'      => 'el-icon-th',
-                'title'     => __('Footer Options', 'roboto'),
+                'title'     => __('Footer Options', 'rabto'),
                 'fields'    => array(
                     array(
+                        'id'        => 'footer_logo',
+                        'type'      => 'media',
+                        'title'     => __('Footer Logo', 'buzz'),
+                    ), 
+                    array(
                         'id'        => 'footer_text',
+                        'type'      => 'text',
+                        'title'     => __('Footer Text', 'buzz'),
+                        'default'     => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus, velit iaculis accumsan dignissim, arcu nunc varius elit, iaculis porttitor lectus dolor vel dui.', 'buzz'),
+                    ), 
+                    array(
+                        'id'        => 'footer_icons',
+                        'type'      => 'switch',
+                        'title'     => __('Footer Social Icons', 'buzz'),
+                        'default'   => '1',
+                    ), 
+                    array(
+                        'id'        => 'footer_copyright',
                         'type'      => 'editor',
-                        'title'     => __('Footer Text', 'roboto'),
-                        'subtitle'  => __('The text written here will be display in footer', 'roboto'),
+                        'title'     => __('Footer Text', 'rabto'),
+                        'subtitle'  => __('The text written here will be display in footer', 'rabto'),
                         'default'   => '© 2016 54 Themes. All rights reserved.',
                     ),
                 )
             );
              $this->sections[] = array(
                 'icon'      => 'el-icon-eye-open',
-                'title'     => __('Theme fonts (typography)', 'roboto'),
-                'desc'      => __('<p class="description">You can change theme fonts.</p>', 'roboto'),
+                'title'     => __('Theme fonts (typography)', 'rabto'),
+                'desc'      => __('<p class="description">You can change theme fonts.</p>', 'rabto'),
                 'fields'    => array(
                     array(
                         'id'        => 'typography-body',
                         'type'      => 'typography',
                         'output'    => array('body'),
-                        'title'     => __('Body Font', 'roboto'),
-                        'subtitle'  => __('Specify the body font properties.', 'roboto'),
+                        'title'     => __('Body Font', 'rabto'),
+                        'subtitle'  => __('Specify the body font properties.', 'rabto'),
                         'google'    => TRUE,
                     ),
 
@@ -356,8 +392,8 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'id'        => 'typography-menu',
                         'type'      => 'typography',
                         'output'    => array('.navbar .nav li a'),
-                        'title'     => __('Menu Font', 'roboto'),
-                        'subtitle'  => __('Specify the Menu font properties.', 'roboto'),
+                        'title'     => __('Menu Font', 'rabto'),
+                        'subtitle'  => __('Specify the Menu font properties.', 'rabto'),
                         'google'    => TRUE,
                     ),
 
@@ -365,48 +401,48 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'id'        => 'typography-h1',
                         'type'      => 'typography',
                         'output'    => array('H1'),
-                        'title'     => __('H1 Font', 'roboto'),
-                        'subtitle'  => __('Specify the font properties.', 'roboto'),
+                        'title'     => __('H1 Font', 'rabto'),
+                        'subtitle'  => __('Specify the font properties.', 'rabto'),
                         'google'    => TRUE,
                     ),
                     array(
                         'id'        => 'typography-h2',
                         'type'      => 'typography',
                         'output'    => array('H2'),
-                        'title'     => __('H2 Font', 'roboto'),
-                        'subtitle'  => __('Specify the font properties.', 'roboto'),
+                        'title'     => __('H2 Font', 'rabto'),
+                        'subtitle'  => __('Specify the font properties.', 'rabto'),
                         'google'    => true,
                     ),
                     array(
                         'id'        => 'typography-h3',
                         'type'      => 'typography',
                         'output'    => array('h3'),
-                        'title'     => __('H3 Font', 'roboto'),
-                        'subtitle'  => __('Specify the font properties.', 'roboto'),
+                        'title'     => __('H3 Font', 'rabto'),
+                        'subtitle'  => __('Specify the font properties.', 'rabto'),
                         'google'    => true,
                     ),
                     array(
                         'id'        => 'typography-h4',
                         'type'      => 'typography',
                         'output'    => array('h4'),
-                        'title'     => __('H4 Font', 'roboto'),
-                        'subtitle'  => __('Specify the font properties.', 'roboto'),
+                        'title'     => __('H4 Font', 'rabto'),
+                        'subtitle'  => __('Specify the font properties.', 'rabto'),
                         'google'    => true,
                     ),
                     array(
                         'id'        => 'typography-h5',
                         'type'      => 'typography',
                         'output'    => array('h5'),
-                        'title'     => __('H5 Font', 'roboto'),
-                        'subtitle'  => __('Specify the font properties.', 'roboto'),
+                        'title'     => __('H5 Font', 'rabto'),
+                        'subtitle'  => __('Specify the font properties.', 'rabto'),
                         'google'    => true,
                     ),
                     array(
                         'id'        => 'typography-h6',
                         'type'      => 'typography',
                         'output'    => array('h6'),
-                        'title'     => __('H6 Font', 'roboto'),
-                        'subtitle'  => __('Specify the font properties.', 'roboto'),
+                        'title'     => __('H6 Font', 'rabto'),
+                        'subtitle'  => __('Specify the font properties.', 'rabto'),
                         'google'    => true,
                     ),
 
@@ -415,31 +451,31 @@ if (!class_exists('Redux_Framework_sample_config')) {
 
             $this->sections[] = array(
                 'icon'      => 'el-icon-bullhorn',
-                'title'     => __('Social Icons', 'roboto'),
-                'desc'      => __('<p class="description">You need to provide social details to display the social icons on header.</p>', 'roboto'),
+                'title'     => __('Social Icons', 'rabto'),
+                'desc'      => __('<p class="description">You need to provide social details to display the social icons on header.</p>', 'rabto'),
                 'fields'    => array(
                     array(
                         'id'        => 'social_facebook',
                         'type'      => 'text',
-                        'title'     => __('Facebook URL', 'roboto'),
+                        'title'     => __('Facebook URL', 'rabto'),
                         'validate'  => 'url',
                     ),
                     array(
                         'id'        => 'social_twitter',
                         'type'      => 'text',
-                        'title'     => __('Twitter URL', 'roboto'),
+                        'title'     => __('Twitter URL', 'rabto'),
                         'validate'  => 'url',
                     ),
                     array(
                         'id'        => 'social_googlep',
                         'type'      => 'text',
-                        'title'     => __('Google Plus URL', 'roboto'),
+                        'title'     => __('Google Plus URL', 'rabto'),
                         'validate'  => 'url',
                     ),
                     array(
                         'id'        => 'social_youtube',
                         'type'      => 'text',
-                        'title'     => __('Youtube URL', 'roboto'),
+                        'title'     => __('Youtube URL', 'rabto'),
                         'validate'  => 'url',
                     ),
                 )
@@ -447,36 +483,36 @@ if (!class_exists('Redux_Framework_sample_config')) {
 
             $this->sections[] = array(
                 'icon'      => 'el-icon-signal',
-                'title'     => __('SEO options', 'roboto'),
-                'desc'      => __('<p class="description">We consider your online presense.</p>', 'roboto'),
+                'title'     => __('SEO options', 'rabto'),
+                'desc'      => __('<p class="description">We consider your online presense.</p>', 'rabto'),
                 'fields'    => array(
 
                     array(
                         'id'        => 'meta_javascript',
                         'type'      => 'textarea',
-                        'title'     => __('Tracking Code', 'roboto'),
-                        'subtitle'  => __('Paste your <b>Google Analytics</b> (or other) tracking code here. This will be added into the footer template of your theme.', 'roboto'),
+                        'title'     => __('Tracking Code', 'rabto'),
+                        'subtitle'  => __('Paste your <b>Google Analytics</b> (or other) tracking code here. This will be added into the footer template of your theme.', 'rabto'),
 
                     ),
 
                     array(
                         'id'        => 'meta_head',
                         'type'      => 'textarea',
-                        'title'     => __('Meta Heading', 'roboto'),
+                        'title'     => __('Meta Heading', 'rabto'),
                         'validate'  => 'no_html',
 
                     ),
                     array(
                         'id'        => 'meta_author',
                         'type'      => 'text',
-                        'title'     => __('Meta Author', 'roboto'),
+                        'title'     => __('Meta Author', 'rabto'),
 
                     ),
 
                     array(
                         'id'        => 'meta_desc',
                         'type'      => 'textarea',
-                        'title'     => __('Meta Description', 'roboto'),
+                        'title'     => __('Meta Description', 'rabto'),
                         'validate'  => 'no_html',
 
                     ),
@@ -484,9 +520,9 @@ if (!class_exists('Redux_Framework_sample_config')) {
                     array(
                         'id'        => 'meta_keyword',
                         'type'      => 'textarea',
-                        'title'     => __('Meta Keyword', 'roboto'),
+                        'title'     => __('Meta Keyword', 'rabto'),
                         'validate'  => 'no_html',
-                        'subtitle'  => __('Enter the wordpress seperated by comma.', 'roboto'),
+                        'subtitle'  => __('Enter the wordpress seperated by comma.', 'rabto'),
 
                     ),
 
@@ -499,14 +535,14 @@ if (!class_exists('Redux_Framework_sample_config')) {
 
             $this->sections[] = array(
                 'icon'      => 'el-icon-check',
-                'title'     => __('Custom CSS', 'roboto'),
-                'desc'      => __('<p class="description">You can add custom CSS to override existing theme design.</p>', 'roboto'),
+                'title'     => __('Custom CSS', 'rabto'),
+                'desc'      => __('<p class="description">You can add custom CSS to override existing theme design.</p>', 'rabto'),
                 'fields'    => array(
                    array(
                         'id'        => 'extra-css',
                         'type'      => 'ace_editor',
-                        'title'     => __('CSS Code', 'roboto'),
-                        'subtitle'  => __('Paste your CSS code here.', 'roboto'),
+                        'title'     => __('CSS Code', 'rabto'),
+                        'subtitle'  => __('Paste your CSS code here.', 'rabto'),
                         'mode'      => 'css',
                         'theme'     => 'monokai',
                         'desc'      => 'Possible modes can be found at <a href="http://ace.c9.io" target="_blank">http://ace.c9.io/</a>.',
@@ -520,8 +556,8 @@ if (!class_exists('Redux_Framework_sample_config')) {
 
 
             $this->sections[] = array(
-                'title'     => __('Import / Export', 'roboto'),
-                'desc'      => __('Import and Export your Redux Framework settings from file, text or URL.', 'roboto'),
+                'title'     => __('Import / Export', 'rabto'),
+                'desc'      => __('Import and Export your Redux Framework settings from file, text or URL.', 'rabto'),
                 'icon'      => 'el-icon-refresh',
                 'fields'    => array(
                     array(
@@ -543,18 +579,18 @@ if (!class_exists('Redux_Framework_sample_config')) {
             // Custom page help tabs, displayed using the help API. Tabs are shown in order of definition.
             $this->args['help_tabs'][] = array(
                 'id'        => 'redux-help-tab-1',
-                'title'     => __('Theme Information 1', 'roboto'),
-                'content'   => __('<p>This is the tab content, HTML is allowed.</p>', 'roboto')
+                'title'     => __('Theme Information 1', 'rabto'),
+                'content'   => __('<p>This is the tab content, HTML is allowed.</p>', 'rabto')
             );
 
             $this->args['help_tabs'][] = array(
                 'id'        => 'redux-help-tab-2',
-                'title'     => __('Theme Information 2', 'roboto'),
-                'content'   => __('<p>This is the tab content, HTML is allowed.</p>', 'roboto')
+                'title'     => __('Theme Information 2', 'rabto'),
+                'content'   => __('<p>This is the tab content, HTML is allowed.</p>', 'rabto')
             );
 
             // Set the help sidebar
-            $this->args['help_sidebar'] = __('<p>This is the sidebar content, HTML is allowed.</p>', 'roboto');
+            $this->args['help_sidebar'] = __('<p>This is the sidebar content, HTML is allowed.</p>', 'rabto');
         }
 
         /**
@@ -569,13 +605,13 @@ if (!class_exists('Redux_Framework_sample_config')) {
 
             $this->args = array(
                 // TYPICAL -> Change these values as you need/desire
-                'opt_name'          => 'roboto_options',            // This is where your data is stored in the database and also becomes your global variable name.
-                'display_name'      => 'roboto',     // Name that appears at the top of your panel
+                'opt_name'          => 'rabto_options',            // This is where your data is stored in the database and also becomes your global variable name.
+                'display_name'      => 'rabto',     // Name that appears at the top of your panel
                 'display_version'   => $theme->get('Version'),  // Version that appears at the top of your panel
                 'menu_type'         => 'menu',                  //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
                 'allow_sub_menu'    => true,                    // Show the sections below the admin menu item or not
-                'menu_title'        => __('Theme Options', 'roboto'),
-                'page_title'        => __('Theme Options', 'roboto'),
+                'menu_title'        => __('Theme Options', 'rabto'),
+                'page_title'        => __('Theme Options', 'rabto'),
 
                 // You will need to generate a Google API key to use this feature.
                 // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
@@ -669,7 +705,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
 
 
             // Add content after the form.
-            $this->args['footer_text'] = __('<p>Please get to us if you have any suggestions.</p>', 'roboto');
+            $this->args['footer_text'] = __('<p>Please get to us if you have any suggestions.</p>', 'rabto');
         }
 
     }

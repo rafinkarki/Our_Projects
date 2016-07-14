@@ -2,7 +2,7 @@
 if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();}
 
 // Dinamic Sidebar
-if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('roboto-widgets-aside-right')) :
-    _e ('add widgets here', 'roboto');
+if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('rabto-widgets-aside-right')) :
+    _e ('add widgets here', 'rabto');
 endif;
 ?>

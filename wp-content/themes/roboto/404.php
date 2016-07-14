@@ -18,7 +18,7 @@
 
 
 
-if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); global $roboto_options; ?>
+if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); global $rabto_options; ?>
 
 <div class="container">
 
@@ -26,9 +26,9 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); glob
 
   <div class="message-content">
 
-    <h1><?php _e('404','roboto');?></h1>
+    <h1><?php _e('404','rabto');?></h1>
 
-    <p><?php _e('The Page You Looking For Doesn’t Exist','roboto');?></p>
+    <p><?php _e('The Page You Looking For Doesn’t Exist','rabto');?></p>
 
   </div>
 

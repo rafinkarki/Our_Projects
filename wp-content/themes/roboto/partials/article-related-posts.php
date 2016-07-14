@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} ?>
 
 <header class="heading">
 
-    <h2><?php _e('Related Posts','roboto');?></h2>
+    <h2><?php _e('Related Posts','rabto');?></h2>
 
 </header>
 
@@ -82,7 +82,7 @@ if ($categories) {
 
 	                <ul class="sub-list">
 
-	                    <li><?php _e('by ','roboto');?><?php the_author_posts_link(); ?></li>
+	                    <li><?php _e('by ','rabto');?><?php the_author_posts_link(); ?></li>
 
 	                    <li><?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago'; ?></li>
 

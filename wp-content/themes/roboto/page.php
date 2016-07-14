@@ -1,15 +1,16 @@
 <?php // Exit if accessed directly
-if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); global $roboto_options;?>
-<section class="clearfix">
+if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); global $rabto_options;?>
+ <section class="rabto-latest-article-section rabto-section rabto-category-post-section">
     <div class="container">
-        <div id="blog-page" class="row clearfix">
-            <div class="pull-left col-md-8 col-sm-8 col-xs-12">
+        <div class="row">
+            <div class="rabto-latest-article-details">
                     <?php if (have_posts()) : ?>
                         <?php while (have_posts()) : the_post(); ?>
-                            <?php the_content(); ?>                            
+                            <span class="rabto-news-post-excerpt"><?php the_content(); ?>   </span>                         
                         <?php endwhile; ?>
                     <?php endif; ?>
             </div>
         </div>
+    </div>
 </section>
 <?php get_footer(); ?>

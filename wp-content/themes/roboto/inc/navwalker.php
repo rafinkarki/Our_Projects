@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Name: bl_bootstrap_navwalker
+ * Class Name: rabto_bootstrap_navwalker
  * GitHub URI: https://github.com/twittem/bl-bootstrap-navwalker
  * Description: A custom WordPress nav walker class to implement the Bootstrap 3 navigation style in a custom theme using the WordPress built in menu manager.
  * Version: 2.0.4
@@ -10,7 +10,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-class bl_bootstrap_navwalker extends Walker_Nav_Menu {
+class rabto_bootstrap_navwalker extends Walker_Nav_Menu {
 
     /**
      * @see Walker::start_lvl()
@@ -21,7 +21,7 @@ class bl_bootstrap_navwalker extends Walker_Nav_Menu {
      */
     public function start_lvl( &$output, $depth = 0, $args = array() ) {
         $indent = str_repeat( "\t", $depth );
-        $output .= "\n$indent<ul role=\"menu\" class=\" dropdown-menu\">\n";
+        $output .= "\n$indent<ul role=\"menu\" class=\"rabto-dropdown-menu\">\n";
     }
 
     /**
@@ -63,7 +63,7 @@ class bl_bootstrap_navwalker extends Walker_Nav_Menu {
             $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 
             if ( $args->has_children )
-                $class_names .= ' dropdown';
+                $class_names .= ' has-submenu';
 
             // if ( in_array( 'current-menu-item', $classes ) )
             //     $class_names .= ' active';
@@ -115,7 +115,7 @@ class bl_bootstrap_navwalker extends Walker_Nav_Menu {
                 $item_output .= '<a'. $attributes .'>';
 
             $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-            $item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
+            $item_output .= ( $args->has_children && 0 === $depth ) ? '</a>' : '</a>';
             $item_output .= $args->after;
 
             $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
@@ -158,12 +158,12 @@ class bl_bootstrap_navwalker extends Walker_Nav_Menu {
     /**
      * Menu Fallback
      * =============
-     * If this function is assigned to the bl_nav_menu's fallback_cb variable
+     * If this function is assigned to the rabto_nav_menu's fallback_cb variable
      * and a manu has not been assigned to the theme location in the WordPress
      * menu manager the function with display nothing to a non-logged in user,
      * and will add a link to the WordPress menu manager if logged in as an admin.
      *
-     * @param array $args passed from the bl_nav_menu function.
+     * @param array $args passed from the rabto_nav_menu function.
      *
      */
     public static function fallback( $args ) {

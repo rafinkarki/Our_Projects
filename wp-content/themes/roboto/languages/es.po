@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: roboto 1.0\n"
+"Project-Id-Version: rabto 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-11 21:11+0545\n"
 "PO-Revision-Date: 2014-09-11 21:14+0545\n"
@@ -1206,7 +1206,7 @@ msgid "Widgets placed here will display in the third footer block"
 msgstr ""
 
 #: ../functions.php:100
-msgid "roboto Primary Menu"
+msgid "rabto Primary Menu"
 msgstr ""
 
 #: ../functions.php:125
@@ -1399,7 +1399,7 @@ msgstr ""
 
 #: ../functions.php:1249
 #, fuzzy
-msgid "Post Tabs (roboto)"
+msgid "Post Tabs (rabto)"
 msgstr "Mostrar im&aacute;genes destacadas?"
 
 #: ../functions.php:1280

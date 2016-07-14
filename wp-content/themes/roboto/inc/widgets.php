@@ -1,10 +1,9 @@
 <?php
 /* Code for Popular Posts widget*/
-
-class WP_Widget_Popular_Post_roboto extends WP_Widget {
+class WP_Widget_Popular_Post_rabto extends WP_Widget {
     function __construct() {
-         $widget_ops = array('classname' => 'Popular Post', 'description' => __( "Gives list of popular posts.","roboto") );
-        parent::__construct('popular_post_widget', __('Popular Posts(roboto)','roboto'), $widget_ops);
+         $widget_ops = array('classname' => 'Trending Posts', 'description' => __( "Gives list of trending posts.","rabto") );
+        parent::__construct('popular_post_widget', __('Robto:Trending Posts','rabto'), $widget_ops);
         $this->alt_option_name = 'popular_post';
     }
     public function widget( $args, $instance ) {
@@ -28,50 +27,47 @@ class WP_Widget_Popular_Post_roboto extends WP_Widget {
          );
           $r = new WP_Query( $arg );
           if ($r->have_posts()) :
-          ?><ol class="video-frame">
+          ?>
+            <div class="rabto-sidebar-widget-details">
             <?php while ( $r->have_posts() ) : $r->the_post(); ?>
-                <li class="video-box">
-                    <div class="img-holder">
+                <div class="rabto-trending-news-post">
+                    <div class="rabto-trending-news-img">
                         <?php
                         $thumbnail = get_post_thumbnail_id($post->ID);
                         $img_url = wp_get_attachment_image_src( $thumbnail,'full');
                         $alt = get_post_meta($thumbnail, '_wp_attachment_image_alt', true);
                         if($img_url):
-                        $n_img = aq_resize( $img_url[0], $width =300, $height = 180, $crop = true, $single = true, $upscale = true );
+                        $n_img = aq_resize( $img_url[0], $width =100, $height = 100, $crop = true, $single = true, $upscale = true );
                         ?>
                         <img src="<?php echo esc_url($n_img);?>"  alt="<?php echo esc_attr($alt);?>">
                         <?php else:
                         $img_url=get_template_directory_uri().'/assets/images/no-image.png';
-                        $n_img = aq_resize( $img_url, $width =300, $height = 180, $crop = true, $single = true, $upscale = true );?>
+                        $n_img = aq_resize( $img_url, $width =100, $height = 100, $crop = true, $single = true, $upscale = true );?>
                         <img src="<?php echo esc_url($img_url);?>" alt="No image">
                         <?php endif;?>
-                        </div>
-                        <div class="text-block">
-                            <h3><a href="<?php the_permalink();?>"><?php the_title();?></a></h3>
-                        </div>
-               </li>
+                    </div>
+                    <div class="rabto-trending-news-details">
+                        <h3 class="rabto-news-post-heading"><a href="<?php the_permalink();?>"><?php the_title();?></a></h3>
+                    </div>
+               </div>
               <?php endwhile; ?>
-            </ol>
+            </div>
           <?php endif;?>
         <?php  wp_reset_postdata(); ?>
         <?php  $content = ob_get_clean();
         wp_cache_set('popular_post', $cache, 'widget');
         echo wp_kses_post($content);
         echo $args['after_widget'];?>
-    <?php endif;?>
-
-    <?php }
-
-
+    <?php endif; }
     public function form( $instance ) {
         $instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
         $title = strip_tags($instance['title']);
         $number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 2;
 
 ?>
-        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','roboto'); ?></label>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','rabto'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
-        <p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of products to show:','roboto' ); ?></label>
+        <p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of products to show:','rabto' ); ?></label>
         <input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
 
 
@@ -93,4 +89,4 @@ class WP_Widget_Popular_Post_roboto extends WP_Widget {
     }
 
 }
-register_widget('WP_Widget_Popular_Post_roboto');
+register_widget('WP_Widget_Popular_Post_rabto');
