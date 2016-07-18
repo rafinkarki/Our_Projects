@@ -32,7 +32,7 @@
                                 </div>
                             <?php endif;?>
                                 <div class="rabto-latest-article-details">
-                                      <span class="rabto-category-meta"> <?php if (get_the_category()) : ?><?php the_category(' / ');endif; ?></span>
+                                      <div class="rabto-category-meta"> <?php if (get_the_category()) : ?><?php the_category(' / ');endif; ?></div>
                                     <h3 class="rabto-news-post-heading">
                                         <a href="<?php the_permalink();?>"><?php the_title();?></a>
                                     </h3>

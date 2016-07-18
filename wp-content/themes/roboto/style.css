@@ -304,3 +304,6 @@ form .rabto-subscription-widget .rabto-subscription-form input {
 .rabto-comments:last-child{
     margin-bottom: 25px
 }
+.rabto-featured-news-section img {
+    width: 100%;
+}
